@@ -1,202 +1,178 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>OBSIDIAN — Premium Commerce</title>
+  <title>NEXO — Sklep Online</title>
 
-  <meta name="description" content="Obsidian — premium e-commerce demo. Fashion, tech & lifestyle.">
+  <meta name="description" content="NEXO — nowoczesny sklep internetowy. Moda, technologia i design.">
   <meta name="author" content="Kontaktio">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
 </head>
- <link rel="icon" href="data:image/svg+xml,
-  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
-    <text y='.9em' font-size='90'>🛍️</text>
-  </svg>">
+
 <body>
 
-<!-- ================= PRELOADER ================= -->
-<div id="preloader">
-  <div class="loader"></div>
-  <span>Loading experience…</span>
-</div>
-
-<!-- ================= HEADER ================= -->
+<!-- HEADER -->
 <header class="header">
-  <div class="logo">OBSIDIAN</div>
+  <div class="container header-inner">
+    <div class="logo">NEXO</div>
 
-  <nav class="nav">
-    <a href="#collections">Collections</a>
-    <a href="#featured">Featured</a>
-    <a href="#products">Shop</a>
-    <a href="#journal">Journal</a>
-    <a href="#about">About</a>
-  </nav>
+    <nav class="nav">
+      <a href="#produkty">Produkty</a>
+      <a href="#kolekcje">Kolekcje</a>
+      <a href="#dlaczego">Dlaczego my</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
 
-  <div class="header-actions">
-    <button class="icon-btn">🔍</button>
-    <button class="icon-btn">🛒</button>
+    <div class="header-actions">
+      <button class="icon-btn">🔍</button>
+      <button class="icon-btn">🛒</button>
+    </div>
   </div>
 </header>
 
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <h1>Nowoczesny<br><span>Sklep Online</span></h1>
+      <p>
+        Demonstracyjna platforma e-commerce nowej generacji.  
+        Szybka. Czysta. Zaprojektowana pod sprzedaż.
+      </p>
 
-  <div class="hero-content">
-    <h1>
-      <span>Premium</span>
-      Commerce
-    </h1>
-    <p>
-      A demonstration of high-end e-commerce UX, design and structure.
-    </p>
+      <div class="hero-actions">
+        <a href="#produkty" class="btn btn-primary">Zobacz produkty</a>
+        <a href="#kolekcje" class="btn btn-outline">Nowe kolekcje</a>
+      </div>
+    </div>
 
-    <div class="hero-actions">
-      <a href="#products" class="btn btn-primary">Shop now</a>
-      <a href="#collections" class="btn btn-outline">Explore collections</a>
+    <div class="hero-visual"></div>
+  </div>
+</section>
+
+<!-- KOLEKCJE -->
+<section id="kolekcje" class="section">
+  <div class="container">
+    <h2 class="section-title">Kolekcje</h2>
+
+    <div class="collections-grid">
+      <div class="collection-card">
+        <h3>Nowości</h3>
+        <p>Świeże dropy i limitowane serie</p>
+      </div>
+
+      <div class="collection-card big">
+        <h3>Bestsellery</h3>
+        <p>Najczęściej wybierane produkty</p>
+      </div>
+
+      <div class="collection-card">
+        <h3>Essentials</h3>
+        <p>Minimalizm na co dzień</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ================= COLLECTIONS ================= -->
-<section id="collections" class="section collections">
-  <h2 class="section-title">Collections</h2>
+<!-- PRODUKTY -->
+<section id="produkty" class="section section-dark">
+  <div class="container">
+    <h2 class="section-title">Produkty</h2>
 
-  <div class="collection-grid">
-    <article class="collection-card">
-      <h3>New Season</h3>
-      <p>Minimal, bold, refined.</p>
-    </article>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-img"></div>
+        <h4>Kurtka NEXO One</h4>
+        <span class="price">429 zł</span>
+        <button class="btn btn-small">Dodaj do koszyka</button>
+      </div>
 
-    <article class="collection-card large">
-      <h3>Essentials</h3>
-      <p>Designed for everyday excellence.</p>
-    </article>
+      <div class="product-card featured">
+        <div class="product-img"></div>
+        <h4>Sneakers NEXO X</h4>
+        <span class="price">349 zł</span>
+        <button class="btn btn-small">Dodaj do koszyka</button>
+      </div>
 
-    <article class="collection-card">
-      <h3>Limited</h3>
-      <p>Small drops. High demand.</p>
-    </article>
+      <div class="product-card">
+        <div class="product-img"></div>
+        <h4>Plecak Urban</h4>
+        <span class="price">259 zł</span>
+        <button class="btn btn-small">Dodaj do koszyka</button>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img"></div>
+        <h4>T-shirt Minimal</h4>
+        <span class="price">119 zł</span>
+        <button class="btn btn-small">Dodaj do koszyka</button>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ================= FEATURED ================= -->
-<section id="featured" class="section featured">
-  <div class="featured-content">
-    <h2>Designed to convert</h2>
-    <p>
-      This layout is built to guide users naturally
-      from inspiration to checkout.
-    </p>
-    <a href="#products" class="btn btn-primary">View products</a>
+<!-- DLACZEGO -->
+<section id="dlaczego" class="section">
+  <div class="container why-grid">
+    <div class="why-card">
+      <h3>Szybka platforma</h3>
+      <p>Zoptymalizowana pod konwersję i UX.</p>
+    </div>
+
+    <div class="why-card">
+      <h3>Nowoczesny design</h3>
+      <p>Bez chaosu. Bez przestarzałych schematów.</p>
+    </div>
+
+    <div class="why-card">
+      <h3>Gotowe pod rozwój</h3>
+      <p>Checkout, API, AI, headless.</p>
+    </div>
   </div>
 </section>
 
-<!-- ================= PRODUCTS ================= -->
-<section id="products" class="section products">
-  <h2 class="section-title">Products</h2>
-
-  <div class="product-grid">
-    <!-- PRODUCT -->
-    <article class="product-card">
-      <div class="product-image"></div>
-      <h4>Obsidian Jacket</h4>
-      <p class="price">€420</p>
-      <button class="btn btn-small">Add to cart</button>
-    </article>
-
-    <article class="product-card featured">
-      <div class="product-image"></div>
-      <h4>Minimal Sneakers</h4>
-      <p class="price">€260</p>
-      <button class="btn btn-small">Add to cart</button>
-    </article>
-
-    <article class="product-card">
-      <div class="product-image"></div>
-      <h4>Leather Bag</h4>
-      <p class="price">€540</p>
-      <button class="btn btn-small">Add to cart</button>
-    </article>
-
-    <article class="product-card">
-      <div class="product-image"></div>
-      <h4>Tailored Shirt</h4>
-      <p class="price">€180</p>
-      <button class="btn btn-small">Add to cart</button>
-    </article>
-
-    <article class="product-card">
-      <div class="product-image"></div>
-      <h4>Wool Coat</h4>
-      <p class="price">€690</p>
-      <button class="btn btn-small">Add to cart</button>
-    </article>
-
-    <article class="product-card">
-      <div class="product-image"></div>
-      <h4>Accessories Set</h4>
-      <p class="price">€120</p>
-      <button class="btn btn-small">Add to cart</button>
-    </article>
+<!-- CTA -->
+<section class="cta">
+  <div class="container cta-inner">
+    <h2>Zbuduj swój sklep</h2>
+    <p>Ten projekt to demonstracja możliwości Kontaktio.</p>
+    <a href="#kontakt" class="btn btn-primary">Skontaktuj się</a>
   </div>
 </section>
 
-<!-- ================= JOURNAL ================= -->
-<section id="journal" class="section journal">
-  <h2 class="section-title">Journal</h2>
+<!-- KONTAKT -->
+<section id="kontakt" class="section">
+  <div class="container contact-grid">
+    <div>
+      <h2>Kontakt</h2>
+      <p>📧 hello@nexo.shop</p>
+      <p>📞 +48 700 000 000</p>
+    </div>
 
-  <div class="journal-grid">
-    <article class="journal-card">
-      <h3>The future of e-commerce UX</h3>
-      <p>Why premium brands invest in experience.</p>
-    </article>
-
-    <article class="journal-card">
-      <h3>Minimalism that sells</h3>
-      <p>Less noise, more conversions.</p>
-    </article>
-
-    <article class="journal-card">
-      <h3>Designing trust online</h3>
-      <p>From visuals to micro-interactions.</p>
-    </article>
+    <form class="contact-form">
+      <input type="text" placeholder="Imię">
+      <input type="email" placeholder="Email">
+      <textarea placeholder="Wiadomość"></textarea>
+      <button class="btn btn-primary">Wyślij</button>
+    </form>
   </div>
 </section>
 
-<!-- ================= ABOUT ================= -->
-<section id="about" class="section about">
-  <div class="about-inner">
-    <h2>About this demo</h2>
-    <p>
-      Obsidian is a demonstration e-commerce interface
-      showcasing advanced layout, animation and UX structure.
-    </p>
-  </div>
-</section>
-
-<!-- ================= FOOTER ================= -->
+<!-- FOOTER -->
 <footer class="footer">
   <p>
-    © 2026 OBSIDIAN  
+    © 2026 NEXO  
     <br>
-    Demonstration e-commerce — Kontaktio 2026
+    Strona demonstracyjna — Kontaktio 2026
   </p>
 </footer>
 
-<script>
-  window.addEventListener("load", () => {
-    document.body.classList.add("loaded");
-  });
-</script>
-
 </body>
 </html>
-
