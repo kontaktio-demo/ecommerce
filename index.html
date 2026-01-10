@@ -1,14 +1,13 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NEXO — Sklep Online</title>
+  <title>NEXO Commerce — Sklep demonstracyjny</title>
 
-  <meta name="description" content="NEXO — nowoczesny sklep internetowy. Moda, technologia i design.">
+  <meta name="description" content="NEXO Commerce — demonstracyjna platforma e-commerce Kontaktio.">
   <meta name="author" content="Kontaktio">
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -21,15 +20,16 @@
   </svg>">
 <body>
 
-<!-- HEADER -->
+<!-- ================= HEADER ================= -->
 <header class="header">
   <div class="container header-inner">
     <div class="logo">NEXO</div>
 
     <nav class="nav">
+      <a href="#oferta">Oferta</a>
       <a href="#produkty">Produkty</a>
-      <a href="#kolekcje">Kolekcje</a>
-      <a href="#dlaczego">Dlaczego my</a>
+      <a href="#korzysci">Dlaczego NEXO</a>
+      <a href="#opinie">Opinie</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
 
@@ -40,124 +40,147 @@
   </div>
 </header>
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 <section class="hero">
-  <div class="container hero-inner">
+  <div class="container hero-grid">
     <div class="hero-text">
-      <h1>Nowoczesny<br><span>Sklep Online</span></h1>
+      <h1>
+        Nowoczesny<br>
+        <span>Sklep Internetowy</span>
+      </h1>
       <p>
-        Demonstracyjna platforma e-commerce nowej generacji.  
-        Szybka. Czysta. Zaprojektowana pod sprzedaż.
+        Kompleksowy projekt e-commerce zaprojektowany
+        pod sprzedaż, UX i dalszy rozwój.
       </p>
 
       <div class="hero-actions">
-        <a href="#produkty" class="btn btn-primary">Zobacz produkty</a>
-        <a href="#kolekcje" class="btn btn-outline">Nowe kolekcje</a>
+        <a href="#produkty" class="btn btn-primary">Przeglądaj produkty</a>
+        <a href="#kontakt" class="btn btn-outline">Zapytaj o ofertę</a>
       </div>
     </div>
 
-    <div class="hero-visual"></div>
+    <div class="hero-visual">
+      <div class="visual-card"></div>
+      <div class="visual-card accent"></div>
+    </div>
   </div>
 </section>
 
-<!-- KOLEKCJE -->
-<section id="kolekcje" class="section">
+<!-- ================= OFERTA ================= -->
+<section id="oferta" class="section">
   <div class="container">
-    <h2 class="section-title">Kolekcje</h2>
+    <h2 class="section-title">Co oferujemy</h2>
 
-    <div class="collections-grid">
-      <div class="collection-card">
-        <h3>Nowości</h3>
-        <p>Świeże dropy i limitowane serie</p>
+    <div class="features-grid">
+      <div class="feature">
+        <h3>Gotowy e-commerce</h3>
+        <p>Struktura sklepu przygotowana pod sprzedaż.</p>
       </div>
-
-      <div class="collection-card big">
-        <h3>Bestsellery</h3>
-        <p>Najczęściej wybierane produkty</p>
+      <div class="feature">
+        <h3>Nowoczesny design</h3>
+        <p>UX zgodny z aktualnymi trendami.</p>
       </div>
-
-      <div class="collection-card">
-        <h3>Essentials</h3>
-        <p>Minimalizm na co dzień</p>
+      <div class="feature">
+        <h3>Skalowalność</h3>
+        <p>Checkout, API, integracje.</p>
+      </div>
+      <div class="feature">
+        <h3>Demonstracja</h3>
+        <p>Projekt pokazowy Kontaktio.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PRODUKTY -->
+<!-- ================= PRODUKTY ================= -->
 <section id="produkty" class="section section-dark">
   <div class="container">
-    <h2 class="section-title">Produkty</h2>
+    <h2 class="section-title light">Produkty</h2>
 
     <div class="products-grid">
-      <div class="product-card">
+      <article class="product-card">
         <div class="product-img"></div>
-        <h4>Kurtka NEXO One</h4>
+        <h4>Kurtka Urban Pro</h4>
+        <p class="desc">Minimalistyczny design, premium jakość.</p>
         <span class="price">429 zł</span>
         <button class="btn btn-small">Dodaj do koszyka</button>
-      </div>
+      </article>
 
-      <div class="product-card featured">
+      <article class="product-card featured">
         <div class="product-img"></div>
         <h4>Sneakers NEXO X</h4>
+        <p class="desc">Bestseller nowej kolekcji.</p>
         <span class="price">349 zł</span>
         <button class="btn btn-small">Dodaj do koszyka</button>
-      </div>
+      </article>
 
-      <div class="product-card">
+      <article class="product-card">
         <div class="product-img"></div>
-        <h4>Plecak Urban</h4>
+        <h4>Plecak City</h4>
+        <p class="desc">Idealny na co dzień i do pracy.</p>
         <span class="price">259 zł</span>
         <button class="btn btn-small">Dodaj do koszyka</button>
-      </div>
+      </article>
 
-      <div class="product-card">
+      <article class="product-card">
         <div class="product-img"></div>
-        <h4>T-shirt Minimal</h4>
+        <h4>T-shirt Essential</h4>
+        <p class="desc">Klasyka w nowoczesnym wydaniu.</p>
         <span class="price">119 zł</span>
         <button class="btn btn-small">Dodaj do koszyka</button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= KORZYŚCI ================= -->
+<section id="korzysci" class="section">
+  <div class="container benefits-grid">
+    <div class="benefit">
+      <h3>Projekt pod konwersję</h3>
+      <p>Logiczny układ, czytelne CTA.</p>
+    </div>
+    <div class="benefit">
+      <h3>Stabilny layout</h3>
+      <p>Brak rozjeżdżania na mobile.</p>
+    </div>
+    <div class="benefit">
+      <h3>Gotowe pod AI</h3>
+      <p>Integracja z agentami Kontaktio.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OPINIE ================= -->
+<section id="opinie" class="section section-soft">
+  <div class="container">
+    <h2 class="section-title">Opinie</h2>
+
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        <p>„Bardzo nowoczesny i czytelny projekt.”</p>
+        <span>— Klient demo</span>
+      </div>
+      <div class="testimonial">
+        <p>„Idealna baza pod sklep produkcyjny.”</p>
+        <span>— Partner</span>
+      </div>
+      <div class="testimonial">
+        <p>„Świetny UX i estetyka.”</p>
+        <span>— Użytkownik</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- DLACZEGO -->
-<section id="dlaczego" class="section">
-  <div class="container why-grid">
-    <div class="why-card">
-      <h3>Szybka platforma</h3>
-      <p>Zoptymalizowana pod konwersję i UX.</p>
-    </div>
-
-    <div class="why-card">
-      <h3>Nowoczesny design</h3>
-      <p>Bez chaosu. Bez przestarzałych schematów.</p>
-    </div>
-
-    <div class="why-card">
-      <h3>Gotowe pod rozwój</h3>
-      <p>Checkout, API, AI, headless.</p>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta">
-  <div class="container cta-inner">
-    <h2>Zbuduj swój sklep</h2>
-    <p>Ten projekt to demonstracja możliwości Kontaktio.</p>
-    <a href="#kontakt" class="btn btn-primary">Skontaktuj się</a>
-  </div>
-</section>
-
-<!-- KONTAKT -->
+<!-- ================= KONTAKT ================= -->
 <section id="kontakt" class="section">
   <div class="container contact-grid">
-    
     <div class="contact-info">
       <h2>Kontakt</h2>
       <p>📧 hello@nexo.shop</p>
       <p>📞 +48 700 000 000</p>
+      <p>Projekt demonstracyjny Kontaktio.</p>
     </div>
 
     <form class="contact-form">
@@ -166,15 +189,13 @@
       <textarea placeholder="Wiadomość"></textarea>
       <button class="btn btn-primary">Wyślij</button>
     </form>
-
   </div>
 </section>
 
-
-<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
 <footer class="footer">
   <p>
-    © 2026 NEXO  
+    © 2026 NEXO Commerce  
     <br>
     Strona demonstracyjna — Kontaktio 2026
   </p>
