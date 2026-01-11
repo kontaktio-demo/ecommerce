@@ -400,7 +400,8 @@
   <button class="stickyClose" id="stickyClose" type="button" aria-label="Zamknij">×</button>
 </div>
 <style>
-  /* Sticky CTA bar — centered version */
+
+/* Sticky CTA bar — improved contrast */
 .stickyBar{
   position: fixed;
   left: 16px;
@@ -413,8 +414,8 @@
   gap: 20px;
   padding: 20px;
   border-radius: 24px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(0,0,0,.55); /* mocniejszy kontrast */
+  border: 1px solid rgba(255,255,255,.12);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   box-shadow: 0 20px 80px rgba(0,0,0,.55);
@@ -423,11 +424,13 @@
   transition: transform .6s var(--ease), opacity .6s var(--ease);
   pointer-events: none;
 }
+
 .stickyBar.on{
   transform: translateY(0);
   opacity: 1;
   pointer-events: auto;
 }
+
 .stickyBar__content{
   display: flex;
   flex-direction: column;
@@ -435,13 +438,20 @@
   text-align: center;
   gap: 10px;
 }
-.stickyBar__content b {
-  color: #fefefe; /* jeśli tło jest ciemne */
+
+.stickyBar__content b{
+  font-size: 13px;
+  font-weight: 900;
+  color: #ffffff; /* pełna biel */
+  text-shadow: 0 1px 2px rgba(0,0,0,.6); /* premium glow */
 }
 
-.stickyBar__content span {
-  color: #e0e0e0; /* lekki kontrast, ale nadal czytelne */
+.stickyBar__content span{
+  font-size: 12px;
+  color: #e6e6e6; /* jasny szary */
+  text-shadow: 0 1px 2px rgba(0,0,0,.5);
 }
+
 .stickyBtn{
   display: inline-flex;
   align-items: center;
@@ -457,9 +467,11 @@
   text-decoration: none;
   box-shadow: 0 14px 40px rgba(16,185,129,.35);
 }
+
 .stickyBtn:hover{
   box-shadow: 0 20px 60px rgba(16,185,129,.55);
 }
+
 .stickyClose{
   position: absolute;
   top: 10px;
@@ -468,14 +480,15 @@
   height: 34px;
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,.14);
-  background: rgba(255,255,255,.06);
-  color: rgba(255,255,255,.88);
+  background: rgba(255,255,255,.08);
+  color: #ffffff;
   font-weight: 900;
   font-size: 18px;
   cursor: pointer;
 }
 
 </style>
+
   <script>
     (function stickyBar(){
   const bar = document.getElementById("stickyBar");
