@@ -3,27 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NEXO Commerce — Sklep demonstracyjny</title>
-
-  <meta name="description" content="NEXO Commerce — demonstracyjna platforma e-commerce Kontaktio.">
-  <meta name="author" content="Kontaktio">
-
+  <title>NEXO - Sklep z moda i akcesoriami</title>
+  <meta name="description" content="NEXO - odkryj najnowsze kolekcje odziezy i akcesoriow w swietnych cenach.">
+  <meta name="author" content="NEXO">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 
-
 <body>
 
-<!-- ================= HEADER ================= -->
 <header class="header">
   <div class="container header-inner">
     <div class="logo">NEXO</div>
 
-    <nav class="nav">
-      <a href="#oferta">Oferta</a>
+    <nav class="nav" id="nav">
+      <a href="#oferta">Kategorie</a>
       <a href="#produkty">Produkty</a>
       <a href="#korzysci">Dlaczego NEXO</a>
       <a href="#opinie">Opinie</a>
@@ -31,28 +27,27 @@
     </nav>
 
     <div class="header-actions">
-      <button class="icon-btn">🔍</button>
-      <button class="icon-btn">🛒</button>
+      <button class="icon-btn" aria-label="Szukaj">&#128269;</button>
+      <button class="icon-btn" aria-label="Koszyk">&#128722;</button>
+      <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
     </div>
   </div>
 </header>
 
-<!-- ================= HERO ================= -->
 <section class="hero">
   <div class="container hero-grid">
     <div class="hero-text">
       <h1>
-        Nowoczesny<br>
-        <span>Sklep Internetowy</span>
+        Nowa kolekcja<br>
+        <span>juz dostepna</span>
       </h1>
       <p>
-        Kompleksowy projekt e-commerce zaprojektowany
-        pod sprzedaż, UX i dalszy rozwój.
+        Odkryj najnowsze trendy w modzie i akcesoriach.
+        Szybka dostawa, prosta wymiana - zakupy bez stresu.
       </p>
-
       <div class="hero-actions">
-        <a href="#produkty" class="btn btn-primary">Przeglądaj produkty</a>
-        <a href="#kontakt" class="btn btn-outline">Zapytaj o ofertę</a>
+        <a href="#produkty" class="btn btn-primary">Przegladaj produkty</a>
+        <a href="#korzysci" class="btn btn-outline">Dlaczego NEXO?</a>
       </div>
     </div>
 
@@ -63,165 +58,152 @@
   </div>
 </section>
 
-<!-- ================= OFERTA ================= -->
 <section id="oferta" class="section">
   <div class="container">
-    <h2 class="section-title">Co oferujemy</h2>
-
+    <h2 class="section-title">Nasze kategorie</h2>
     <div class="features-grid">
       <div class="feature">
-        <h3>Gotowy e-commerce</h3>
-        <p>Struktura sklepu przygotowana pod sprzedaż.</p>
+        <div class="feature-icon">&#128248;</div>
+        <h3>Odzież</h3>
+        <p>Kurtki, bluzy, koszulki - zawsze w dobrej cenie.</p>
       </div>
       <div class="feature">
-        <h3>Nowoczesny design</h3>
-        <p>UX zgodny z aktualnymi trendami.</p>
+        <div class="feature-icon">&#128602;</div>
+        <h3>Obuwie</h3>
+        <p>Sneakersy i buty codzienne dla każdego.</p>
       </div>
       <div class="feature">
-        <h3>Skalowalność</h3>
-        <p>Checkout, API, integracje.</p>
+        <div class="feature-icon">&#127890;</div>
+        <h3>Akcesoria</h3>
+        <p>Plecaki, torby i dodatki do każdej stylizacji.</p>
       </div>
       <div class="feature">
-        <h3>Demonstracja</h3>
-        <p>Projekt pokazowy Kontaktio.</p>
+        <div class="feature-icon">&#11088;</div>
+        <h3>Bestsellery</h3>
+        <p>Najchetniej wybierane przez naszych klientow.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= PRODUKTY ================= -->
 <section id="produkty" class="section section-dark">
   <div class="container">
     <h2 class="section-title light">Produkty</h2>
-
     <div class="products-grid">
       <article class="product-card">
         <div class="product-img"></div>
         <h4>Kurtka Urban Pro</h4>
-        <p class="desc">Minimalistyczny design, premium jakość.</p>
-        <span class="price">429 zł</span>
-        <button class="btn btn-small">Dodaj do koszyka</button>
+        <p class="desc">Minimalistyczny design, premium jakosc.</p>
+        <span class="price">429 zl</span>
+        <button class="btn btn-small btn-primary">Dodaj do koszyka</button>
       </article>
 
       <article class="product-card featured">
         <div class="product-img"></div>
         <h4>Sneakers NEXO X</h4>
         <p class="desc">Bestseller nowej kolekcji.</p>
-        <span class="price">349 zł</span>
-        <button class="btn btn-small">Dodaj do koszyka</button>
+        <span class="price">349 zl</span>
+        <button class="btn btn-small btn-primary">Dodaj do koszyka</button>
       </article>
 
       <article class="product-card">
         <div class="product-img"></div>
         <h4>Plecak City</h4>
-        <p class="desc">Idealny na co dzień i do pracy.</p>
-        <span class="price">259 zł</span>
-        <button class="btn btn-small">Dodaj do koszyka</button>
+        <p class="desc">Idealny na co dzien i do pracy.</p>
+        <span class="price">259 zl</span>
+        <button class="btn btn-small btn-primary">Dodaj do koszyka</button>
       </article>
 
       <article class="product-card">
         <div class="product-img"></div>
         <h4>T-shirt Essential</h4>
         <p class="desc">Klasyka w nowoczesnym wydaniu.</p>
-        <span class="price">119 zł</span>
-        <button class="btn btn-small">Dodaj do koszyka</button>
+        <span class="price">119 zl</span>
+        <button class="btn btn-small btn-primary">Dodaj do koszyka</button>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ================= KORZYŚCI ================= -->
 <section id="korzysci" class="section">
-  <div class="container benefits-grid">
-    <div class="benefit">
-      <h3>Projekt pod konwersję</h3>
-      <p>Logiczny układ, czytelne CTA.</p>
-    </div>
-    <div class="benefit">
-      <h3>Stabilny layout</h3>
-      <p>Brak rozjeżdżania na mobile.</p>
-    </div>
-    <div class="benefit">
-      <h3>Gotowe pod AI</h3>
-      <p>Integracja z agentami Kontaktio.</p>
+  <div class="container">
+    <h2 class="section-title">Dlaczego NEXO?</h2>
+    <div class="benefits-grid">
+      <div class="benefit">
+        <div class="benefit-icon">&#128666;</div>
+        <h3>Darmowa dostawa</h3>
+        <p>Przy zamowieniach powyzej 199 zl dostawa gratis.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">&#128260;</div>
+        <h3>Prosta wymiana</h3>
+        <p>30 dni na zwrot lub wymiane - bez pytan.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">&#128737;</div>
+        <h3>Gwarancja jakosci</h3>
+        <p>Tylko sprawdzone materialy i marki.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ================= OPINIE ================= -->
 <section id="opinie" class="section section-soft">
   <div class="container">
-    <h2 class="section-title">Opinie</h2>
-
+    <h2 class="section-title">Opinie klientow</h2>
     <div class="testimonials-grid">
       <div class="testimonial">
-        <p>„Bardzo nowoczesny i czytelny projekt.”</p>
-        <span>— Klient demo</span>
+        <p>"Swietna jakosc i szybka dostawa. Wracam tu regularnie."</p>
+        <span>- Marta K.</span>
       </div>
       <div class="testimonial">
-        <p>„Idealna baza pod sklep produkcyjny.”</p>
-        <span>— Partner</span>
+        <p>"Kurtka Urban Pro to strzal w dziesiatke. Polecam!"</p>
+        <span>- Tomasz W.</span>
       </div>
       <div class="testimonial">
-        <p>„Świetny UX i estetyka.”</p>
-        <span>— Użytkownik</span>
+        <p>"Prosty zwrot i mila obsluga. Najlepszy sklep online."</p>
+        <span>- Ania M.</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= KONTAKT ================= -->
 <section id="kontakt" class="section">
   <div class="container contact-grid">
     <div class="contact-info">
       <h2>Kontakt</h2>
-      <p>📧 hello@nexo.shop</p>
-      <p>📞 +48 700 000 000</p>
-      <p>Projekt demonstracyjny Kontaktio.</p>
+      <p>&#128231; hello@nexo.shop</p>
+      <p>&#128222; +48 700 000 000</p>
+      <p>Odpowiadamy w ciagu 24 godzin.</p>
     </div>
-
     <form class="contact-form">
-      <input type="text" placeholder="Imię">
+      <input type="text" placeholder="Imie">
       <input type="email" placeholder="Email">
-      <textarea placeholder="Wiadomość"></textarea>
-      <button class="btn btn-primary">Wyślij</button>
+      <textarea placeholder="Wiadomosc"></textarea>
+      <button class="btn btn-primary">Wyslij</button>
     </form>
   </div>
 </section>
 
-<!-- ================= FOOTER ================= -->
 <footer class="footer">
-  <p>
-    © 2026 NEXO Commerce  
-    <br>
-    Strona demonstracyjna — Kontaktio 2026
-  </p>
+  <p>&copy; 2026 NEXO - Wszelkie prawa zastrzezone</p>
 </footer>
-  <style>
-/* =========================================================
-   KONTAKTIO – NEXO WOW SKIN
-   White / Purple / E-commerce / Premium Glass
-   ========================================================= */
 
+<style>
 :root {
-  --k-accent: #7a3cff;      /* vibrant purple */
-  --k-accent2: #c084fc;     /* soft violet */
+  --k-accent: #7a3cff;
+  --k-accent2: #c084fc;
   --k-glass: rgba(255, 255, 255, 0.85);
-  --k-glass-soft: rgba(255, 255, 255, 0.45);
   --k-border: rgba(0, 0, 0, 0.08);
   --k-text: rgba(30, 30, 30, 0.94);
   --k-muted: rgba(30, 30, 30, 0.65);
 }
 
-/* ===============================
-   LAUNCHER (Floating Button)
-=============================== */
 .kontaktio-launcher {
   width: 64px !important;
   height: 64px !important;
   border-radius: 999px !important;
-  background:
-    radial-gradient(circle at 30% 30%, var(--k-accent), var(--k-accent2)) !important;
+  background: radial-gradient(circle at 30% 30%, var(--k-accent), var(--k-accent2)) !important;
   border: 1px solid rgba(0,0,0,.08) !important;
   box-shadow:
     0 22px 70px rgba(122,60,255,.35),
@@ -256,8 +238,7 @@
   position: absolute;
   inset: 0;
   border-radius: 999px;
-  background:
-    linear-gradient(135deg, rgba(255,255,255,.25), transparent 60%);
+  background: linear-gradient(135deg, rgba(255,255,255,.25), transparent 60%);
   opacity: .35;
 }
 
@@ -269,9 +250,6 @@
   color: #ffffff;
 }
 
-/* ===============================
-   WIDGET CONTAINER
-=============================== */
 .kontaktio-widget {
   border-radius: 24px !important;
   border: 1px solid var(--k-border) !important;
@@ -301,12 +279,8 @@
   animation: kontaktioAurora 9s ease-in-out infinite;
 }
 
-/* ===============================
-   HEADER
-=============================== */
 .kontaktio-header {
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,.25)) !important;
+  background: linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,.25)) !important;
   color: var(--k-text) !important;
   border-bottom: 1px solid rgba(0,0,0,.06);
 }
@@ -315,9 +289,6 @@
   color: var(--k-muted) !important;
 }
 
-/* ===============================
-   CHAT BUBBLES
-=============================== */
 .kontaktio-bubble {
   border-radius: 18px !important;
   font-size: 14.5px !important;
@@ -334,18 +305,13 @@
 }
 
 .kontaktio-row.user .kontaktio-bubble {
-  background:
-    linear-gradient(135deg, var(--k-accent), var(--k-accent2)) !important;
+  background: linear-gradient(135deg, var(--k-accent), var(--k-accent2)) !important;
   color: #ffffff !important;
   font-weight: 700;
 }
 
-/* ===============================
-   INPUT AREA
-=============================== */
 .kontaktio-inputwrap {
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.38)) !important;
+  background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.38)) !important;
   border-top: 1px solid rgba(0,0,0,.06);
 }
 
@@ -360,17 +326,13 @@
 }
 
 .kontaktio-send {
-  background:
-    linear-gradient(135deg, var(--k-accent), var(--k-accent2)) !important;
+  background: linear-gradient(135deg, var(--k-accent), var(--k-accent2)) !important;
   color: #ffffff !important;
   border: 1px solid rgba(0,0,0,.08);
   font-weight: 800;
   box-shadow: 0 12px 40px rgba(122,60,255,.35);
 }
 
-/* ===============================
-   AURORA ANIMATION
-=============================== */
 @keyframes kontaktioAurora {
   0%   { transform: translate(0,0) scale(1); }
   50%  { transform: translate(14px,-12px) scale(1.05); }
@@ -384,25 +346,22 @@
   }
 }
 </style>
+
 <script
   src="https://cdn.jsdelivr.net/gh/kontaktio-demo/kontaktio@5d9beb0/kontaktio.js"
   data-kontaktio
   data-client="NEXO"
   data-backend="https://chatbot-backend-x2cy.onrender.com"
 ></script>
-    <!-- Sticky CTA (centered) -->
-<div class="stickyBar" id="stickyBar" aria-hidden="true">
-  <div class="stickyBar__content">
-    <b>Zainteresowany? Zobacz inne branże</b>
-    <span>Każda ma gotowego asystenta AI dopasowanego do klientów.</span>
-    <a class="stickyBtn" href="https://kontaktio.pl">← Powrót</a>
-  </div>
-  <button class="stickyClose" id="stickyClose" type="button" aria-label="Zamknij">×</button>
-</div>
-<style>
 
-/* Sticky CTA bar — improved contrast */
-.stickyBar{
+<div class="stickyBar" id="stickyBar" aria-hidden="true">
+  <span class="stickyBar__text">Zobacz inne branze na kontaktio.pl</span>
+  <a class="stickyBtn" href="https://kontaktio.pl">Powrot</a>
+  <button class="stickyClose" id="stickyClose" type="button" aria-label="Zamknij">&times;</button>
+</div>
+
+<style>
+.stickyBar {
   position: fixed;
   left: 16px;
   right: 16px;
@@ -410,104 +369,118 @@
   z-index: 50;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
-  border-radius: 24px;
-  background: rgba(0,0,0,.55); /* mocniejszy kontrast */
-  border: 1px solid rgba(255,255,255,.12);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  box-shadow: 0 20px 80px rgba(0,0,0,.55);
+  gap: 12px;
+  padding: 10px 16px;
+  border-radius: 14px;
+  background: rgba(10,10,14,.72);
+  border: 1px solid rgba(255,255,255,.1);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 8px 32px rgba(0,0,0,.35);
   transform: translateY(24px);
   opacity: 0;
-  transition: transform .6s var(--ease), opacity .6s var(--ease);
+  transition: transform .5s ease, opacity .5s ease;
   pointer-events: none;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-.stickyBar.on{
+.stickyBar.on {
   transform: translateY(0);
   opacity: 1;
   pointer-events: auto;
 }
 
-.stickyBar__content{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 10px;
-}
-
-.stickyBar__content b{
-  font-size: 13px;
-  font-weight: 900;
-  color: #ffffff; /* pełna biel */
-  text-shadow: 0 1px 2px rgba(0,0,0,.6); /* premium glow */
-}
-
-.stickyBar__content span{
+.stickyBar__text {
+  flex: 1;
   font-size: 12px;
-  color: #e6e6e6; /* jasny szary */
-  text-shadow: 0 1px 2px rgba(0,0,0,.5);
+  color: rgba(255,255,255,.75);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.stickyBtn{
+.stickyBtn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 38px;
-  padding: 0 16px;
+  height: 30px;
+  padding: 0 14px;
   border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.14);
-  background: linear-gradient(135deg, #10b981, #22c55e);
+  background: #fff;
   color: #0b0b0d;
-  font-weight: 900;
-  font-size: 12px;
+  font-weight: 700;
+  font-size: 11px;
   text-decoration: none;
-  box-shadow: 0 14px 40px rgba(16,185,129,.35);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: opacity .2s;
 }
 
-.stickyBtn:hover{
-  box-shadow: 0 20px 60px rgba(16,185,129,.55);
+.stickyBtn:hover {
+  opacity: .85;
 }
 
-.stickyClose{
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 34px;
-  height: 34px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.14);
+.stickyClose {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.15);
   background: rgba(255,255,255,.08);
-  color: #ffffff;
-  font-weight: 900;
-  font-size: 18px;
+  color: rgba(255,255,255,.7);
+  font-size: 14px;
   cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: background .2s;
 }
 
+.stickyClose:hover {
+  background: rgba(255,255,255,.16);
+}
+
+@media (max-width: 480px) {
+  .stickyBar__text {
+    display: none;
+  }
+}
 </style>
 
- <script>
-(function stickyBar(){
-  const bar = document.getElementById("stickyBar");
-  const close = document.getElementById("stickyClose");
+<script>
+(function() {
+  var bar = document.getElementById("stickyBar");
+  var close = document.getElementById("stickyClose");
+  var hamburger = document.getElementById("hamburger");
+  var nav = document.getElementById("nav");
+
+  if (hamburger && nav) {
+    hamburger.addEventListener("click", function() {
+      nav.classList.toggle("open");
+    });
+
+    document.addEventListener("click", function(e) {
+      if (!nav.contains(e.target) && e.target !== hamburger) {
+        nav.classList.remove("open");
+      }
+    });
+  }
+
   if (!bar || !close) return;
 
-  const key = "kontaktio_sticky_closed";
-  const closed = (() => {
-    try { return localStorage.getItem(key) === "1"; } catch { return false; }
-  })();
+  var key = "kontaktio_sticky_closed";
+  var closed = false;
+  try { closed = localStorage.getItem(key) === "1"; } catch(e) {}
   if (closed) return;
 
-  let lastState = false;
-  let ticking = false;
+  var lastState = false;
+  var ticking = false;
 
-  function updateBar(){
-    const y = window.scrollY || 0;
-    const shouldShow = y > 900;
-
+  function updateBar() {
+    var y = window.scrollY || 0;
+    var shouldShow = y > 900;
     if (shouldShow !== lastState) {
       if (shouldShow) {
         bar.classList.add("on");
@@ -516,25 +489,24 @@
       }
       lastState = shouldShow;
     }
-
     ticking = false;
   }
 
-  function onScroll(){
+  window.addEventListener("scroll", function() {
     if (!ticking) {
       window.requestAnimationFrame(updateBar);
       ticking = true;
     }
-  }
+  }, { passive: true });
 
-  window.addEventListener("scroll", onScroll, { passive: true });
   updateBar();
 
-  close.addEventListener("click", () => {
+  close.addEventListener("click", function() {
     bar.classList.remove("on");
-    try { localStorage.setItem(key, "1"); } catch {}
+    try { localStorage.setItem(key, "1"); } catch(e) {}
   });
 })();
 </script>
+
 </body>
 </html>
