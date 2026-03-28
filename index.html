@@ -14,6 +14,10 @@
 
 <body>
 
+<div class="shipping-banner">
+  Darmowa dostawa od 199 zl - zamow teraz i odbierz w 24h!
+</div>
+
 <header class="header">
   <div class="container header-inner">
     <div class="logo">NEXO</div>
@@ -27,12 +31,160 @@
     </nav>
 
     <div class="header-actions">
-      <button class="icon-btn" aria-label="Szukaj">&#128269;</button>
-      <button class="icon-btn" aria-label="Koszyk">&#128722;</button>
+      <button class="icon-btn" id="searchBtn" aria-label="Szukaj">&#128269;</button>
+      <button class="icon-btn" id="cartBtn" aria-label="Koszyk">
+        &#128722;
+        <span class="cart-badge" id="cartBadge">0</span>
+      </button>
       <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
     </div>
   </div>
 </header>
+
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-sidebar" id="cartSidebar" aria-label="Koszyk">
+  <div class="cart-header">
+    <h3>Koszyk <span class="cart-header-count" id="cartHeaderCount">0</span></h3>
+    <button class="cart-close" id="cartClose" aria-label="Zamknij koszyk">&times;</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty" id="cartEmpty">
+      <div class="cart-empty-icon">&#128722;</div>
+      <p>Twoj koszyk jest pusty</p>
+      <button class="btn btn-primary btn-small" onclick="closeCart()">Przegladaj produkty</button>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-shipping-info" id="cartShippingInfo"></div>
+    <div class="cart-summary">
+      <div class="cart-row">
+        <span>Suma czesciowa</span>
+        <span id="cartSubtotal">0 zl</span>
+      </div>
+      <div class="cart-row">
+        <span>Dostawa</span>
+        <span id="cartShipping">-</span>
+      </div>
+      <div class="cart-row cart-total">
+        <span>Razem</span>
+        <span id="cartTotal">0 zl</span>
+      </div>
+    </div>
+    <button class="btn btn-primary btn-full" onclick="openCheckout()">Zamow teraz</button>
+    <button class="btn btn-outline btn-full" style="margin-top:8px" onclick="closeCart()">Kontynuuj zakupy</button>
+  </div>
+</aside>
+
+<div class="modal-overlay" id="checkoutOverlay">
+  <div class="modal" id="checkoutModal">
+    <div id="checkoutForm">
+      <div class="modal-header">
+        <h3>Finalizacja zamowienia</h3>
+        <button class="modal-close" onclick="closeCheckout()" aria-label="Zamknij">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-section">
+          <h4>Podsumowanie</h4>
+          <div class="order-summary-items" id="orderSummaryItems"></div>
+          <div class="checkout-total">
+            <span>Razem do zaplaty</span>
+            <span id="orderTotal">0 zl</span>
+          </div>
+        </div>
+        <div class="modal-section">
+          <h4>Dane dostawy</h4>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Imie</label>
+              <input type="text" id="chkName" placeholder="Jan" autocomplete="given-name">
+            </div>
+            <div class="form-group">
+              <label>Nazwisko</label>
+              <input type="text" id="chkSurname" placeholder="Kowalski" autocomplete="family-name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="chkEmail" placeholder="jan@example.com" autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label>Telefon</label>
+            <input type="tel" id="chkPhone" placeholder="+48 000 000 000" autocomplete="tel">
+          </div>
+          <div class="form-group">
+            <label>Ulica i numer</label>
+            <input type="text" id="chkStreet" placeholder="ul. Przykladowa 12/3" autocomplete="street-address">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Kod pocztowy</label>
+              <input type="text" id="chkZip" placeholder="00-000" autocomplete="postal-code">
+            </div>
+            <div class="form-group">
+              <label>Miasto</label>
+              <input type="text" id="chkCity" placeholder="Warszawa" autocomplete="address-level2">
+            </div>
+          </div>
+        </div>
+        <div class="modal-section">
+          <h4>Metoda platnosci</h4>
+          <div class="payment-options">
+            <label class="payment-option">
+              <input type="radio" name="payment" value="card" checked>
+              <span class="payment-option-icon">&#128179;</span>
+              <span>Karta platnicza / Kredytowa</span>
+            </label>
+            <label class="payment-option">
+              <input type="radio" name="payment" value="blik">
+              <span class="payment-option-icon">&#128247;</span>
+              <span>BLIK</span>
+            </label>
+            <label class="payment-option">
+              <input type="radio" name="payment" value="transfer">
+              <span class="payment-option-icon">&#127981;</span>
+              <span>Przelew bankowy</span>
+            </label>
+            <label class="payment-option">
+              <input type="radio" name="payment" value="cod">
+              <span class="payment-option-icon">&#128176;</span>
+              <span>Platnosc przy odbiorze</span>
+            </label>
+          </div>
+        </div>
+        <button class="btn btn-primary btn-full" onclick="submitOrder()" style="margin-top:8px">Zloz zamowienie</button>
+      </div>
+    </div>
+    <div id="checkoutSuccess" style="display:none" class="checkout-success">
+      <div class="checkout-success-icon">&#127881;</div>
+      <h3>Zamowienie zlozono!</h3>
+      <p>Dziekujemy za zakup. Potwierdzenie wyslemy na podany adres email. Paczka dotrze w ciagu 24-48 godzin.</p>
+      <button class="btn btn-primary" onclick="closeCheckout()">Wroc do sklepu</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="sizeOverlay">
+  <div class="modal" style="max-width:380px">
+    <div class="modal-header">
+      <h3 id="sizeModalTitle">Wybierz rozmiar</h3>
+      <button class="modal-close" onclick="closeSizeModal()" aria-label="Zamknij">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="size-options" id="sizeOptions"></div>
+      <button class="btn btn-primary btn-full" id="sizeConfirmBtn" onclick="confirmSize()">Dodaj do koszyka</button>
+    </div>
+  </div>
+</div>
+
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Szukaj produktow..." autocomplete="off" aria-label="Wyszukaj">
+    <button class="search-close-btn" id="searchCloseBtn" aria-label="Zamknij wyszukiwanie">&times;</button>
+  </div>
+  <div class="search-results" id="searchResults"></div>
+</div>
+
+<div class="toast" id="toast"></div>
 
 <section class="hero">
   <div class="container hero-grid">
@@ -49,11 +201,27 @@
         <a href="#produkty" class="btn btn-primary">Przegladaj produkty</a>
         <a href="#korzysci" class="btn btn-outline">Dlaczego NEXO?</a>
       </div>
+      <div class="stats-row">
+        <div>
+          <div class="stat-value">12k+</div>
+          <div class="stat-label">Zadowolonych klientow</div>
+        </div>
+        <div>
+          <div class="stat-value">200+</div>
+          <div class="stat-label">Produktow w ofercie</div>
+        </div>
+        <div>
+          <div class="stat-value">4.9</div>
+          <div class="stat-label">Srednia ocena</div>
+        </div>
+      </div>
     </div>
 
     <div class="hero-visual">
-      <div class="visual-card"></div>
       <div class="visual-card accent"></div>
+      <div class="visual-card">
+        <span class="visual-card-emoji">&#128248;</span>
+      </div>
     </div>
   </div>
 </section>
@@ -62,22 +230,22 @@
   <div class="container">
     <h2 class="section-title">Nasze kategorie</h2>
     <div class="features-grid">
-      <div class="feature">
+      <div class="feature" onclick="filterCategory('odzież')">
         <div class="feature-icon">&#128248;</div>
         <h3>Odzież</h3>
         <p>Kurtki, bluzy, koszulki - zawsze w dobrej cenie.</p>
       </div>
-      <div class="feature">
+      <div class="feature" onclick="filterCategory('obuwie')">
         <div class="feature-icon">&#128602;</div>
         <h3>Obuwie</h3>
         <p>Sneakersy i buty codzienne dla każdego.</p>
       </div>
-      <div class="feature">
+      <div class="feature" onclick="filterCategory('akcesoria')">
         <div class="feature-icon">&#127890;</div>
         <h3>Akcesoria</h3>
         <p>Plecaki, torby i dodatki do każdej stylizacji.</p>
       </div>
-      <div class="feature">
+      <div class="feature" onclick="filterCategory('all')">
         <div class="feature-icon">&#11088;</div>
         <h3>Bestsellery</h3>
         <p>Najchetniej wybierane przez naszych klientow.</p>
@@ -89,39 +257,22 @@
 <section id="produkty" class="section section-dark">
   <div class="container">
     <h2 class="section-title light">Produkty</h2>
-    <div class="products-grid">
-      <article class="product-card">
-        <div class="product-img"></div>
-        <h4>Kurtka Urban Pro</h4>
-        <p class="desc">Minimalistyczny design, premium jakosc.</p>
-        <span class="price">429 zl</span>
-        <button class="btn btn-small btn-primary">Dodaj do koszyka</button>
-      </article>
-
-      <article class="product-card featured">
-        <div class="product-img"></div>
-        <h4>Sneakers NEXO X</h4>
-        <p class="desc">Bestseller nowej kolekcji.</p>
-        <span class="price">349 zl</span>
-        <button class="btn btn-small btn-primary">Dodaj do koszyka</button>
-      </article>
-
-      <article class="product-card">
-        <div class="product-img"></div>
-        <h4>Plecak City</h4>
-        <p class="desc">Idealny na co dzien i do pracy.</p>
-        <span class="price">259 zl</span>
-        <button class="btn btn-small btn-primary">Dodaj do koszyka</button>
-      </article>
-
-      <article class="product-card">
-        <div class="product-img"></div>
-        <h4>T-shirt Essential</h4>
-        <p class="desc">Klasyka w nowoczesnym wydaniu.</p>
-        <span class="price">119 zl</span>
-        <button class="btn btn-small btn-primary">Dodaj do koszyka</button>
-      </article>
+    <div class="products-controls">
+      <div class="filter-tabs" id="filterTabs">
+        <button class="filter-tab active" data-cat="all">Wszystkie</button>
+        <button class="filter-tab" data-cat="odzież">Odzież</button>
+        <button class="filter-tab" data-cat="obuwie">Obuwie</button>
+        <button class="filter-tab" data-cat="akcesoria">Akcesoria</button>
+      </div>
+      <select class="sort-select" id="sortSelect">
+        <option value="default">Popularnosc</option>
+        <option value="price-asc">Cena: od najnizszej</option>
+        <option value="price-desc">Cena: od najwyzszej</option>
+        <option value="rating">Najlepiej oceniane</option>
+        <option value="newest">Nowosci</option>
+      </select>
     </div>
+    <div class="products-grid" id="productsGrid"></div>
   </div>
 </section>
 
@@ -132,17 +283,32 @@
       <div class="benefit">
         <div class="benefit-icon">&#128666;</div>
         <h3>Darmowa dostawa</h3>
-        <p>Przy zamowieniach powyzej 199 zl dostawa gratis.</p>
+        <p>Przy zamowieniach powyzej 199 zl dostawa gratis. Ekspresowa opcja dostepna za 14,99 zl.</p>
       </div>
       <div class="benefit">
         <div class="benefit-icon">&#128260;</div>
         <h3>Prosta wymiana</h3>
-        <p>30 dni na zwrot lub wymiane - bez pytan.</p>
+        <p>30 dni na zwrot lub wymiane - bez pytan. Darmowe etykiety zwrotne dla stałych klientow.</p>
       </div>
       <div class="benefit">
         <div class="benefit-icon">&#128737;</div>
         <h3>Gwarancja jakosci</h3>
-        <p>Tylko sprawdzone materialy i marki.</p>
+        <p>Tylko sprawdzone materialy i marki. Kazdy produkt przechodzi kontrole jakosci.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">&#128222;</div>
+        <h3>Wsparcie 24/7</h3>
+        <p>Nasz zespol jest zawsze dostepny. Odpowiadamy srednio w 15 minut.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">&#128275;</div>
+        <h3>Bezpieczne platnosci</h3>
+        <p>Szyfrowane polaczenie SSL, BLIK, karty i przelew. Twoje dane sa bezpieczne.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">&#127381;</div>
+        <h3>Eksluzywne oferty</h3>
+        <p>Dołacz do newslettera i otrzymaj -10% na pierwsze zamowienie oraz dostep do wyprzedazy.</p>
       </div>
     </div>
   </div>
@@ -153,17 +319,82 @@
     <h2 class="section-title">Opinie klientow</h2>
     <div class="testimonials-grid">
       <div class="testimonial">
-        <p>"Swietna jakosc i szybka dostawa. Wracam tu regularnie."</p>
-        <span>- Marta K.</span>
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>"Swietna jakosc i szybka dostawa. Kurtka Urban Pro przyszla nastepnego dnia - jestem zachwycona! Wracam tu regularnie."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#6366f1,#818cf8)">MK</div>
+          <div>
+            <div class="testimonial-name">Marta K.</div>
+            <div class="testimonial-date">14 marca 2026</div>
+          </div>
+        </div>
       </div>
       <div class="testimonial">
-        <p>"Kurtka Urban Pro to strzal w dziesiatke. Polecam!"</p>
-        <span>- Tomasz W.</span>
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>"Kurtka Urban Pro to strzal w dziesiatke. Swietnie lezy, material premium. Rozmiar zgodny z tabelka. Polecam!"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#0ea5e9,#38bdf8)">TW</div>
+          <div>
+            <div class="testimonial-name">Tomasz W.</div>
+            <div class="testimonial-date">2 marca 2026</div>
+          </div>
+        </div>
       </div>
       <div class="testimonial">
-        <p>"Prosty zwrot i mila obsluga. Najlepszy sklep online."</p>
-        <span>- Ania M.</span>
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>"Prosty zwrot i mila obsluga. Zamowilam dwa rozmiary sneakersow i zwrot jednej pary byl bez zadnych problemow. Najlepszy sklep online!"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#f43f5e,#fb7185)">AM</div>
+          <div>
+            <div class="testimonial-name">Anna M.</div>
+            <div class="testimonial-date">20 lutego 2026</div>
+          </div>
+        </div>
       </div>
+      <div class="testimonial">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>"Plecak City to idealna torba do pracy. Miesci laptopa, dokumenty i lunch. Material swietny jakosciowo."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#10b981,#34d399)">PJ</div>
+          <div>
+            <div class="testimonial-name">Piotr J.</div>
+            <div class="testimonial-date">10 lutego 2026</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+        <p>"Sneakers NEXO X sa wygodne i bardzo stylowe. Zamowilam w sobote, dostawa w poniedzialek. Szybko!"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#f59e0b,#fbbf24)">KN</div>
+          <div>
+            <div class="testimonial-name">Karolina N.</div>
+            <div class="testimonial-date">5 lutego 2026</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>"Zamawiam tu juz od ponad roku. Kazdy produkt jest dokladnie taki jak na zdjecie. Polecam NEXO wszystkim znajomym!"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa)">MR</div>
+          <div>
+            <div class="testimonial-name">Marek R.</div>
+            <div class="testimonial-date">28 stycznia 2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="promo-section">
+  <div class="container">
+    <h2>-10% na pierwsze zamowienie</h2>
+    <p>Zapisz sie do newslettera i odbierz kod rabatowy na pierwsze zakupy.</p>
+    <div class="promo-input-row">
+      <input type="email" id="newsletterEmail" placeholder="Twoj adres email">
+      <button class="btn" onclick="subscribeNewsletter()">Zapisz sie</button>
     </div>
   </div>
 </section>
@@ -174,19 +405,70 @@
       <h2>Kontakt</h2>
       <p>&#128231; hello@nexo.shop</p>
       <p>&#128222; +48 700 000 000</p>
-      <p>Odpowiadamy w ciagu 24 godzin.</p>
+      <p>&#128337; Pn-Pt 9:00 - 18:00</p>
+      <p>Odpowiadamy w ciagu 24 godzin. Masz pytanie o produkt lub zamowienie? Napisz do nas!</p>
     </div>
-    <form class="contact-form">
-      <input type="text" placeholder="Imie">
-      <input type="email" placeholder="Email">
-      <textarea placeholder="Wiadomosc"></textarea>
-      <button class="btn btn-primary">Wyslij</button>
+    <form class="contact-form" onsubmit="submitContact(event)">
+      <input type="text" placeholder="Imie" required>
+      <input type="email" placeholder="Email" required>
+      <input type="text" placeholder="Temat">
+      <textarea placeholder="Wiadomosc" required></textarea>
+      <button type="submit" class="btn btn-primary">Wyslij wiadomosc</button>
     </form>
   </div>
 </section>
 
 <footer class="footer">
-  <p>&copy; 2026 NEXO - Wszelkie prawa zastrzezone</p>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="logo footer-brand">NEXO</span>
+      <p>Twoj ulubiony sklep z moda i akcesoriami. Szybka dostawa, prosta wymiana, premium jakosc.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram">&#128247;</a>
+        <a href="#" aria-label="Facebook">&#128101;</a>
+        <a href="#" aria-label="TikTok">&#127925;</a>
+        <a href="#" aria-label="YouTube">&#127909;</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Sklep</h4>
+      <ul>
+        <li><a href="#produkty">Wszystkie produkty</a></li>
+        <li><a href="#oferta">Odzież</a></li>
+        <li><a href="#oferta">Obuwie</a></li>
+        <li><a href="#oferta">Akcesoria</a></li>
+        <li><a href="#">Wyprzedaz</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Pomoc</h4>
+      <ul>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Dostawa i zwroty</a></li>
+        <li><a href="#">Tabela rozmiarow</a></li>
+        <li><a href="#">Sledzenie paczki</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Firma</h4>
+      <ul>
+        <li><a href="#">O nas</a></li>
+        <li><a href="#">Praca</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Regulamin</a></li>
+        <li><a href="#">Prywatnosc</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 NEXO - Wszelkie prawa zastrzezone</span>
+    <span>
+      <a href="#">Regulamin</a> &nbsp;|&nbsp;
+      <a href="#">Polityka prywatnosci</a> &nbsp;|&nbsp;
+      <a href="#">Cookies</a>
+    </span>
+  </div>
 </footer>
 
 <style>
@@ -450,60 +732,671 @@
 </style>
 
 <script>
+var PRODUCTS = [
+  {
+    id: 1,
+    name: 'Kurtka Urban Pro',
+    desc: 'Minimalistyczny design, premium jakosc. Idealna na kazda pore roku.',
+    price: 429,
+    category: 'odzie\u017c',
+    badge: null,
+    sizes: ['XS','S','M','L','XL','XXL'],
+    emoji: '\uD83E\uDDE5',
+    gradient: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)',
+    rating: 4.8,
+    reviews: 127,
+    isNew: false
+  },
+  {
+    id: 2,
+    name: 'Sneakers NEXO X',
+    desc: 'Bestseller nowej kolekcji. Lekka podeszwa, premium materialy.',
+    price: 349,
+    category: 'obuwie',
+    badge: 'bestseller',
+    sizes: ['38','39','40','41','42','43','44','45'],
+    emoji: '\uD83D\uDC5F',
+    gradient: 'linear-gradient(135deg, #0f3460 0%, #16213e 100%)',
+    rating: 4.9,
+    reviews: 342,
+    isNew: false
+  },
+  {
+    id: 3,
+    name: 'Plecak City',
+    desc: 'Idealny na co dzien i do pracy. Miesci laptopa 15". Wodoodporny.',
+    price: 259,
+    category: 'akcesoria',
+    badge: null,
+    sizes: null,
+    emoji: '\uD83C\uDF92',
+    gradient: 'linear-gradient(135deg, #1b4332 0%, #081c15 100%)',
+    rating: 4.7,
+    reviews: 89,
+    isNew: false
+  },
+  {
+    id: 4,
+    name: 'T-shirt Essential',
+    desc: 'Klasyka w nowoczesnym wydaniu. 100% bawelna organiczna.',
+    price: 119,
+    category: 'odzie\u017c',
+    badge: null,
+    sizes: ['XS','S','M','L','XL','XXL'],
+    emoji: '\uD83D\uDC55',
+    gradient: 'linear-gradient(135deg, #7f1d1d 0%, #450a0a 100%)',
+    rating: 4.6,
+    reviews: 214,
+    isNew: false
+  },
+  {
+    id: 5,
+    name: 'Bluza Street',
+    desc: 'Miekka, ciezka dzianina. Oversize fit, kangurkowa kieszen.',
+    price: 189,
+    category: 'odzie\u017c',
+    badge: 'new',
+    sizes: ['XS','S','M','L','XL','XXL'],
+    emoji: '\uD83D\uDC5A',
+    gradient: 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)',
+    rating: 4.8,
+    reviews: 56,
+    isNew: true
+  },
+  {
+    id: 6,
+    name: 'Torba Canvas',
+    desc: 'Ekologiczna torba plocienna. Mocne uchwyty, duza pojemnosc.',
+    price: 99,
+    oldPrice: 124,
+    category: 'akcesoria',
+    badge: 'sale',
+    sizes: null,
+    emoji: '\uD83D\uDCBC',
+    gradient: 'linear-gradient(135deg, #78350f 0%, #451a03 100%)',
+    rating: 4.5,
+    reviews: 73,
+    isNew: false
+  },
+  {
+    id: 7,
+    name: 'Czapka Winter',
+    desc: 'Ciepla czapka z welmny merino. Idealna na zimowe dni.',
+    price: 89,
+    category: 'akcesoria',
+    badge: null,
+    sizes: ['S/M','L/XL'],
+    emoji: '\uD83E\uDDE3',
+    gradient: 'linear-gradient(135deg, #312e81 0%, #1e1b4b 100%)',
+    rating: 4.7,
+    reviews: 41,
+    isNew: false
+  },
+  {
+    id: 8,
+    name: 'Spodnie Chino',
+    desc: 'Klasyczne chino z elastycznym pasem. Slim fit, materiał stretch.',
+    price: 249,
+    category: 'odzie\u017c',
+    badge: null,
+    sizes: ['28','30','32','34','36'],
+    emoji: '\uD83D\uDC56',
+    gradient: 'linear-gradient(135deg, #365314 0%, #1a2e05 100%)',
+    rating: 4.6,
+    reviews: 98,
+    isNew: false
+  },
+  {
+    id: 9,
+    name: 'Sneakers Low',
+    desc: 'Niska cholewka, ponadczasowy design. Dostepne w 5 kolorach.',
+    price: 299,
+    category: 'obuwie',
+    badge: 'new',
+    sizes: ['37','38','39','40','41','42','43','44','45','46'],
+    emoji: '\uD83D\uDC5E',
+    gradient: 'linear-gradient(135deg, #7c2d12 0%, #431407 100%)',
+    rating: 4.7,
+    reviews: 34,
+    isNew: true
+  },
+  {
+    id: 10,
+    name: 'Kurtka Puffer',
+    desc: 'Ciepla kurtka puchowa. Wype lnienie 90% puch. Wodoodporna.',
+    price: 299,
+    oldPrice: 349,
+    category: 'odzie\u017c',
+    badge: 'sale',
+    sizes: ['XS','S','M','L','XL','XXL'],
+    emoji: '\uD83E\uDDE3',
+    gradient: 'linear-gradient(135deg, #111827 0%, #030712 100%)',
+    rating: 4.9,
+    reviews: 182,
+    isNew: false
+  },
+  {
+    id: 11,
+    name: 'Sandaly Summer',
+    desc: 'Skorzane sandaly na lato. Ergonomiczna wkladka, regulowane paski.',
+    price: 179,
+    category: 'obuwie',
+    badge: null,
+    sizes: ['36','37','38','39','40','41','42'],
+    emoji: '\uD83D\uDC61',
+    gradient: 'linear-gradient(135deg, #92400e 0%, #451a03 100%)',
+    rating: 4.5,
+    reviews: 67,
+    isNew: false
+  },
+  {
+    id: 12,
+    name: 'Portfel Slim',
+    desc: 'Minimalistyczny portfel RFID. Miesci 8 kart + banknoty.',
+    price: 99,
+    category: 'akcesoria',
+    badge: null,
+    sizes: null,
+    emoji: '\uD83D\uDCB3',
+    gradient: 'linear-gradient(135deg, #1c1917 0%, #0c0a09 100%)',
+    rating: 4.8,
+    reviews: 156,
+    isNew: false
+  }
+];
+
+var cart = [];
+var wishlist = [];
+var currentFilter = 'all';
+var currentSort = 'default';
+var pendingProductId = null;
+var pendingSize = null;
+var toastTimer = null;
+
+function loadCart() {
+  try {
+    var stored = localStorage.getItem('nexo_cart');
+    if (stored) cart = JSON.parse(stored);
+  } catch(e) { cart = []; }
+}
+
+function saveCart() {
+  try {
+    localStorage.setItem('nexo_cart', JSON.stringify(cart));
+  } catch(e) {}
+}
+
+function loadWishlist() {
+  try {
+    var stored = localStorage.getItem('nexo_wishlist');
+    if (stored) wishlist = JSON.parse(stored);
+  } catch(e) { wishlist = []; }
+}
+
+function saveWishlist() {
+  try {
+    localStorage.setItem('nexo_wishlist', JSON.stringify(wishlist));
+  } catch(e) {}
+}
+
+function getProductById(id) {
+  return PRODUCTS.find(function(p) { return p.id === id; });
+}
+
+function starsHtml(rating) {
+  var full = Math.floor(rating);
+  var half = rating - full >= 0.5 ? 1 : 0;
+  var empty = 5 - full - half;
+  var s = '';
+  for (var i = 0; i < full; i++) s += '\u2605';
+  if (half) s += '\u00BD';
+  for (var i = 0; i < empty; i++) s += '\u2606';
+  return s;
+}
+
+function renderProducts() {
+  var grid = document.getElementById('productsGrid');
+  var list = PRODUCTS.slice();
+
+  if (currentFilter !== 'all') {
+    list = list.filter(function(p) { return p.category === currentFilter; });
+  }
+
+  if (currentSort === 'price-asc') {
+    list.sort(function(a, b) { return a.price - b.price; });
+  } else if (currentSort === 'price-desc') {
+    list.sort(function(a, b) { return b.price - a.price; });
+  } else if (currentSort === 'rating') {
+    list.sort(function(a, b) { return b.rating - a.rating; });
+  } else if (currentSort === 'newest') {
+    list.sort(function(a, b) { return (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0); });
+  }
+
+  if (!list.length) {
+    grid.innerHTML = '<p style="color:#9ca3af;grid-column:1/-1;text-align:center;padding:40px 0">Brak produktow w tej kategorii.</p>';
+    return;
+  }
+
+  grid.innerHTML = list.map(function(p) {
+    var wished = wishlist.indexOf(p.id) !== -1;
+    var badgeHtml = '';
+    if (p.badge === 'bestseller') badgeHtml = '<span class="product-badge badge-bestseller">Bestseller</span>';
+    else if (p.badge === 'new') badgeHtml = '<span class="product-badge badge-new">Nowy</span>';
+    else if (p.badge === 'sale') badgeHtml = '<span class="product-badge badge-sale">Wyprzedaz</span>';
+
+    var priceHtml = '<div class="product-price-row"><span class="price">' + p.price + ' zl</span>';
+    if (p.oldPrice) priceHtml += '<span class="price-old">' + p.oldPrice + ' zl</span>';
+    priceHtml += '</div>';
+
+    return '<article class="product-card' + (p.badge === 'bestseller' ? ' featured' : '') + '">' +
+      '<div class="product-img-wrap">' +
+        '<div class="product-img" style="background:' + p.gradient + '">' + p.emoji + '</div>' +
+        badgeHtml +
+        '<button class="product-wishlist' + (wished ? ' wished' : '') + '" onclick="toggleWishlist(event,' + p.id + ')" aria-label="Dodaj do ulubionych">' +
+          (wished ? '\u2764\uFE0F' : '\uD83E\uDD0D') +
+        '</button>' +
+      '</div>' +
+      '<div class="product-body">' +
+        '<div class="product-rating"><span class="stars">' + starsHtml(p.rating) + '</span><span class="rating-count">(' + p.reviews + ')</span></div>' +
+        '<h4>' + p.name + '</h4>' +
+        '<p class="desc">' + p.desc + '</p>' +
+        priceHtml +
+        '<div class="product-actions">' +
+          '<button class="btn btn-primary" onclick="handleAddToCart(' + p.id + ')">Dodaj do koszyka</button>' +
+        '</div>' +
+      '</div>' +
+    '</article>';
+  }).join('');
+}
+
+function filterCategory(cat) {
+  currentFilter = cat;
+  document.querySelectorAll('.filter-tab').forEach(function(btn) {
+    btn.classList.toggle('active', btn.dataset.cat === cat);
+  });
+  renderProducts();
+  var el = document.getElementById('produkty');
+  if (el) el.scrollIntoView({ behavior: 'smooth' });
+}
+
+function handleAddToCart(id) {
+  var p = getProductById(id);
+  if (!p) return;
+  if (p.sizes && p.sizes.length) {
+    openSizeModal(id);
+  } else {
+    addToCart(id, null, 1);
+  }
+}
+
+function openSizeModal(id) {
+  var p = getProductById(id);
+  if (!p) return;
+  pendingProductId = id;
+  pendingSize = null;
+  document.getElementById('sizeModalTitle').textContent = p.name + ' - wybierz rozmiar';
+  var opts = document.getElementById('sizeOptions');
+  opts.innerHTML = p.sizes.map(function(s) {
+    return '<button class="size-btn" onclick="selectSize(\'' + s + '\')">' + s + '</button>';
+  }).join('');
+  document.getElementById('sizeOverlay').classList.add('active');
+}
+
+function selectSize(size) {
+  pendingSize = size;
+  document.querySelectorAll('.size-btn').forEach(function(btn) {
+    btn.classList.toggle('selected', btn.textContent === size);
+  });
+}
+
+function closeSizeModal() {
+  document.getElementById('sizeOverlay').classList.remove('active');
+  pendingProductId = null;
+  pendingSize = null;
+}
+
+function confirmSize() {
+  if (!pendingProductId) return;
+  if (!pendingSize) {
+    showToast('\u26A0\uFE0F Wybierz rozmiar');
+    return;
+  }
+  addToCart(pendingProductId, pendingSize, 1);
+  closeSizeModal();
+}
+
+function addToCart(id, size, qty) {
+  var p = getProductById(id);
+  if (!p) return;
+  var key = id + '_' + (size || 'none');
+  var existing = cart.find(function(i) { return i.key === key; });
+  if (existing) {
+    existing.qty += qty;
+  } else {
+    cart.push({ key: key, id: id, size: size, qty: qty });
+  }
+  saveCart();
+  updateCartUI();
+  showToast('\u2705 Dodano do koszyka: ' + p.name);
+}
+
+function removeFromCart(key) {
+  cart = cart.filter(function(i) { return i.key !== key; });
+  saveCart();
+  updateCartUI();
+  renderCartItems();
+}
+
+function changeQty(key, delta) {
+  var item = cart.find(function(i) { return i.key === key; });
+  if (!item) return;
+  item.qty = Math.max(1, item.qty + delta);
+  saveCart();
+  updateCartUI();
+  renderCartItems();
+}
+
+function updateCartUI() {
+  var total = cart.reduce(function(s, i) { return s + i.qty; }, 0);
+  var badge = document.getElementById('cartBadge');
+  var hCount = document.getElementById('cartHeaderCount');
+  badge.textContent = total;
+  hCount.textContent = total;
+  if (total > 0) {
+    badge.classList.add('visible');
+  } else {
+    badge.classList.remove('visible');
+  }
+}
+
+function renderCartItems() {
+  var container = document.getElementById('cartItems');
+  var empty = document.getElementById('cartEmpty');
+  var footer = document.getElementById('cartFooter');
+
+  if (!cart.length) {
+    container.innerHTML = '';
+    container.appendChild(empty);
+    empty.style.display = 'flex';
+    footer.style.display = 'none';
+    return;
+  }
+
+  empty.style.display = 'none';
+  footer.style.display = 'block';
+
+  var subtotal = 0;
+  var html = cart.map(function(item) {
+    var p = getProductById(item.id);
+    if (!p) return '';
+    var lineTotal = p.price * item.qty;
+    subtotal += lineTotal;
+    var meta = item.size ? 'Rozmiar: ' + item.size : '';
+    return '<div class="cart-item">' +
+      '<div class="cart-item-img" style="background:' + p.gradient + '">' + p.emoji + '</div>' +
+      '<div class="cart-item-info">' +
+        '<div class="cart-item-name">' + p.name + '</div>' +
+        (meta ? '<div class="cart-item-meta">' + meta + '</div>' : '<div class="cart-item-meta">&nbsp;</div>') +
+        '<div class="cart-item-controls">' +
+          '<div class="qty-controls">' +
+            '<button class="qty-btn" onclick="changeQty(\'' + item.key + '\',-1)">-</button>' +
+            '<span class="qty-value">' + item.qty + '</span>' +
+            '<button class="qty-btn" onclick="changeQty(\'' + item.key + '\',1)">+</button>' +
+          '</div>' +
+          '<span class="cart-item-price">' + lineTotal + ' zl</span>' +
+          '<button class="cart-item-remove" onclick="removeFromCart(\'' + item.key + '\')" aria-label="Usun">\uD83D\uDDD1\uFE0F</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+
+  container.innerHTML = html;
+
+  var FREE_SHIPPING = 199;
+  var shipping = subtotal >= FREE_SHIPPING ? 0 : 14.99;
+  var total = subtotal + shipping;
+
+  document.getElementById('cartSubtotal').textContent = subtotal.toFixed(2).replace('.', ',') + ' zl';
+  document.getElementById('cartShipping').textContent = shipping === 0 ? 'Gratis' : shipping.toFixed(2).replace('.', ',') + ' zl';
+  document.getElementById('cartTotal').textContent = total.toFixed(2).replace('.', ',') + ' zl';
+
+  var infoEl = document.getElementById('cartShippingInfo');
+  if (shipping === 0) {
+    infoEl.innerHTML = '\uD83C\uDF89 Masz darmowa dostawe!';
+  } else {
+    var diff = (FREE_SHIPPING - subtotal).toFixed(2);
+    var pct = Math.min(100, Math.round((subtotal / FREE_SHIPPING) * 100));
+    infoEl.innerHTML = 'Dodaj jeszcze <strong>' + diff.replace('.', ',') + ' zl</strong> do darmowej dostawy<div class="cart-shipping-bar"><div class="cart-shipping-bar-fill" style="width:' + pct + '%"></div></div>';
+  }
+}
+
+function openCart() {
+  renderCartItems();
+  document.getElementById('cartSidebar').classList.add('open');
+  document.getElementById('cartOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCart() {
+  document.getElementById('cartSidebar').classList.remove('open');
+  document.getElementById('cartOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function openCheckout() {
+  closeCart();
+  var items = document.getElementById('orderSummaryItems');
+  var subtotal = 0;
+  items.innerHTML = cart.map(function(item) {
+    var p = getProductById(item.id);
+    if (!p) return '';
+    var line = p.price * item.qty;
+    subtotal += line;
+    var label = p.name + (item.size ? ' (r. ' + item.size + ')' : '') + ' x' + item.qty;
+    return '<div class="order-summary-item"><span class="order-summary-item-name">' + label + '</span><span class="order-summary-item-price">' + line + ' zl</span></div>';
+  }).join('');
+  var shipping = subtotal >= 199 ? 0 : 14.99;
+  document.getElementById('orderTotal').textContent = (subtotal + shipping).toFixed(2).replace('.', ',') + ' zl';
+  document.getElementById('checkoutForm').style.display = '';
+  document.getElementById('checkoutSuccess').style.display = 'none';
+  document.getElementById('checkoutOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCheckout() {
+  document.getElementById('checkoutOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function submitOrder() {
+  var name = document.getElementById('chkName').value.trim();
+  var email = document.getElementById('chkEmail').value.trim();
+  var street = document.getElementById('chkStreet').value.trim();
+  var city = document.getElementById('chkCity').value.trim();
+  if (!name || !email || !street || !city) {
+    showToast('\u26A0\uFE0F Wypelnij wymagane pola');
+    return;
+  }
+  cart = [];
+  saveCart();
+  updateCartUI();
+  document.getElementById('checkoutForm').style.display = 'none';
+  document.getElementById('checkoutSuccess').style.display = '';
+}
+
+function toggleWishlist(e, id) {
+  e.stopPropagation();
+  var idx = wishlist.indexOf(id);
+  if (idx === -1) {
+    wishlist.push(id);
+    showToast('\u2764\uFE0F Dodano do ulubionych');
+  } else {
+    wishlist.splice(idx, 1);
+    showToast('Usunieto z ulubionych');
+  }
+  saveWishlist();
+  renderProducts();
+}
+
+function showToast(msg) {
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function() {
+    t.classList.remove('show');
+  }, 3000);
+}
+
+function subscribeNewsletter() {
+  var el = document.getElementById('newsletterEmail');
+  var val = el.value.trim();
+  if (!val || !val.includes('@')) {
+    showToast('\u26A0\uFE0F Podaj poprawny adres email');
+    return;
+  }
+  el.value = '';
+  showToast('\uD83D\uDCE7 Zapisano! Sprawdz email po kod -10%');
+}
+
+function submitContact(e) {
+  e.preventDefault();
+  showToast('\uD83D\uDCEC Wiadomosc wyslana. Odpiszemy wkrotce!');
+  e.target.reset();
+}
+
+function openSearch() {
+  document.getElementById('searchOverlay').classList.add('active');
+  document.getElementById('searchInput').focus();
+  document.body.style.overflow = 'hidden';
+}
+
+function closeSearch() {
+  document.getElementById('searchOverlay').classList.remove('active');
+  document.getElementById('searchInput').value = '';
+  document.getElementById('searchResults').innerHTML = '';
+  document.body.style.overflow = '';
+}
+
+function handleSearch(val) {
+  var container = document.getElementById('searchResults');
+  val = val.trim().toLowerCase();
+  if (!val) {
+    container.innerHTML = '';
+    return;
+  }
+  var results = PRODUCTS.filter(function(p) {
+    return p.name.toLowerCase().includes(val) || p.desc.toLowerCase().includes(val) || p.category.toLowerCase().includes(val);
+  });
+  if (!results.length) {
+    container.innerHTML = '<div class="search-no-results">Nie znaleziono produktow dla "' + val + '"</div>';
+    return;
+  }
+  container.innerHTML = results.map(function(p) {
+    return '<div class="search-result-item" onclick="selectSearchResult(' + p.id + ')">' +
+      '<div class="search-result-img" style="background:' + p.gradient + '">' + p.emoji + '</div>' +
+      '<div class="search-result-info">' +
+        '<div class="search-result-name">' + p.name + '</div>' +
+        '<div class="search-result-price">' + p.price + ' zl</div>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+}
+
+function selectSearchResult(id) {
+  closeSearch();
+  handleAddToCart(id);
+}
+
 (function() {
-  var bar = document.getElementById("stickyBar");
-  var close = document.getElementById("stickyClose");
-  var hamburger = document.getElementById("hamburger");
-  var nav = document.getElementById("nav");
+  loadCart();
+  loadWishlist();
+  updateCartUI();
+  renderProducts();
+
+  document.getElementById('cartBtn').addEventListener('click', openCart);
+  document.getElementById('cartClose').addEventListener('click', closeCart);
+  document.getElementById('cartOverlay').addEventListener('click', closeCart);
+
+  document.getElementById('searchBtn').addEventListener('click', openSearch);
+  document.getElementById('searchCloseBtn').addEventListener('click', closeSearch);
+  document.getElementById('searchInput').addEventListener('input', function() {
+    handleSearch(this.value);
+  });
+  document.getElementById('searchOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closeSearch();
+  });
+
+  document.getElementById('checkoutOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closeCheckout();
+  });
+  document.getElementById('sizeOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closeSizeModal();
+  });
+
+  document.getElementById('filterTabs').addEventListener('click', function(e) {
+    var btn = e.target.closest('.filter-tab');
+    if (!btn) return;
+    filterCategory(btn.dataset.cat);
+  });
+
+  document.getElementById('sortSelect').addEventListener('change', function() {
+    currentSort = this.value;
+    renderProducts();
+  });
+
+  var hamburger = document.getElementById('hamburger');
+  var nav = document.getElementById('nav');
 
   if (hamburger && nav) {
-    hamburger.addEventListener("click", function() {
-      nav.classList.toggle("open");
+    hamburger.addEventListener('click', function() {
+      nav.classList.toggle('open');
     });
-
-    document.addEventListener("click", function(e) {
+    document.addEventListener('click', function(e) {
       if (!nav.contains(e.target) && e.target !== hamburger) {
-        nav.classList.remove("open");
+        nav.classList.remove('open');
       }
     });
   }
 
-  if (!bar || !close) return;
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeCart();
+      closeCheckout();
+      closeSizeModal();
+      closeSearch();
+    }
+  });
 
-  var key = "kontaktio_sticky_closed";
+  var bar = document.getElementById('stickyBar');
+  var stickyClose = document.getElementById('stickyClose');
+  if (!bar || !stickyClose) return;
+  var key = 'kontaktio_sticky_closed';
   var closed = false;
-  try { closed = localStorage.getItem(key) === "1"; } catch(e) {}
+  try { closed = localStorage.getItem(key) === '1'; } catch(e) {}
   if (closed) return;
-
   var lastState = false;
   var ticking = false;
-
   function updateBar() {
     var y = window.scrollY || 0;
     var shouldShow = y > 900;
     if (shouldShow !== lastState) {
-      if (shouldShow) {
-        bar.classList.add("on");
-      } else {
-        bar.classList.remove("on");
-      }
+      if (shouldShow) bar.classList.add('on');
+      else bar.classList.remove('on');
       lastState = shouldShow;
     }
     ticking = false;
   }
-
-  window.addEventListener("scroll", function() {
+  window.addEventListener('scroll', function() {
     if (!ticking) {
       window.requestAnimationFrame(updateBar);
       ticking = true;
     }
   }, { passive: true });
-
   updateBar();
-
-  close.addEventListener("click", function() {
-    bar.classList.remove("on");
-    try { localStorage.setItem(key, "1"); } catch(e) {}
+  stickyClose.addEventListener('click', function() {
+    bar.classList.remove('on');
+    try { localStorage.setItem(key, '1'); } catch(e) {}
   });
 })();
 </script>
