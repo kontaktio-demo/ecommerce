@@ -187,40 +187,32 @@
 <div class="toast" id="toast"></div>
 
 <section class="hero">
-  <div class="container hero-grid">
-    <div class="hero-text">
-      <h1>
-        Nowa kolekcja<br>
-        <span>juz dostepna</span>
-      </h1>
-      <p>
-        Odkryj najnowsze trendy w modzie i akcesoriach.
-        Szybka dostawa, prosta wymiana - zakupy bez stresu.
-      </p>
-      <div class="hero-actions">
-        <a href="#produkty" class="btn btn-primary">Przegladaj produkty</a>
-        <a href="#korzysci" class="btn btn-outline">Dlaczego NEXO?</a>
-      </div>
-      <div class="stats-row">
-        <div>
-          <div class="stat-value">12k+</div>
-          <div class="stat-label">Zadowolonych klientow</div>
-        </div>
-        <div>
-          <div class="stat-value">200+</div>
-          <div class="stat-label">Produktow w ofercie</div>
-        </div>
-        <div>
-          <div class="stat-value">4.9</div>
-          <div class="stat-label">Srednia ocena</div>
-        </div>
-      </div>
+  <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920&q=80')"></div>
+  <div class="container hero-content" data-animate>
+    <h1>
+      Nowa kolekcja<br>
+      <span>juz dostepna</span>
+    </h1>
+    <p>
+      Odkryj najnowsze trendy w modzie i akcesoriach.
+      Szybka dostawa, prosta wymiana - zakupy bez stresu.
+    </p>
+    <div class="hero-actions">
+      <a href="#produkty" class="btn btn-primary">Przegladaj produkty</a>
+      <a href="#korzysci" class="btn btn-outline-light">Dlaczego NEXO?</a>
     </div>
-
-    <div class="hero-visual">
-      <div class="visual-card accent"></div>
-      <div class="visual-card">
-        <span class="visual-card-emoji">&#128248;</span>
+    <div class="stats-row">
+      <div>
+        <div class="stat-value">12k+</div>
+        <div class="stat-label">Zadowolonych klientow</div>
+      </div>
+      <div>
+        <div class="stat-value">200+</div>
+        <div class="stat-label">Produktow w ofercie</div>
+      </div>
+      <div>
+        <div class="stat-value">4.9</div>
+        <div class="stat-label">Srednia ocena</div>
       </div>
     </div>
   </div>
@@ -228,39 +220,62 @@
 
 <section id="oferta" class="section">
   <div class="container">
-    <h2 class="section-title">Nasze kategorie</h2>
+    <h2 class="section-title" data-animate>Nasze kategorie</h2>
     <div class="features-grid">
-      <div class="feature" onclick="filterCategory('odzież')">
-        <div class="feature-icon">&#128248;</div>
-        <h3>Odzież</h3>
-        <p>Kurtki, bluzy, koszulki - zawsze w dobrej cenie.</p>
+      <div class="feature" onclick="filterCategory('odzie\u017c')" data-animate data-animate-delay="1">
+        <div class="feature-img" style="background-image:url('https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=600&q=80')"></div>
+        <div class="feature-overlay"></div>
+        <div class="feature-text">
+          <h3>Odziez</h3>
+          <p>Kurtki, bluzy, koszulki - zawsze w dobrej cenie.</p>
+        </div>
       </div>
-      <div class="feature" onclick="filterCategory('obuwie')">
-        <div class="feature-icon">&#128602;</div>
-        <h3>Obuwie</h3>
-        <p>Sneakersy i buty codzienne dla każdego.</p>
+      <div class="feature" onclick="filterCategory('obuwie')" data-animate data-animate-delay="2">
+        <div class="feature-img" style="background-image:url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80')"></div>
+        <div class="feature-overlay"></div>
+        <div class="feature-text">
+          <h3>Obuwie</h3>
+          <p>Sneakersy i buty codzienne dla ka\u017cdego.</p>
+        </div>
       </div>
-      <div class="feature" onclick="filterCategory('akcesoria')">
-        <div class="feature-icon">&#127890;</div>
-        <h3>Akcesoria</h3>
-        <p>Plecaki, torby i dodatki do każdej stylizacji.</p>
+      <div class="feature" onclick="filterCategory('akcesoria')" data-animate data-animate-delay="3">
+        <div class="feature-img" style="background-image:url('https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80')"></div>
+        <div class="feature-overlay"></div>
+        <div class="feature-text">
+          <h3>Akcesoria</h3>
+          <p>Plecaki, torby i dodatki do ka\u017cdej stylizacji.</p>
+        </div>
       </div>
-      <div class="feature" onclick="filterCategory('all')">
-        <div class="feature-icon">&#11088;</div>
-        <h3>Bestsellery</h3>
-        <p>Najchetniej wybierane przez naszych klientow.</p>
+      <div class="feature" onclick="filterCategory('all')" data-animate data-animate-delay="4">
+        <div class="feature-img" style="background-image:url('https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=600&q=80')"></div>
+        <div class="feature-overlay"></div>
+        <div class="feature-text">
+          <h3>Bestsellery</h3>
+          <p>Najchetniej wybierane przez naszych klientow.</p>
+        </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="parallax-break">
+  <div class="parallax-break-img" style="background-image:url('https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1920&q=80')"></div>
+  <div class="parallax-break-overlay"></div>
+  <div class="parallax-break-content">
+    <div>
+      <h2 data-animate>Styl, ktory definiuje Ciebie</h2>
+      <p data-animate>Ponad 200 produktow premium w jednym miejscu</p>
     </div>
   </div>
 </section>
 
 <section id="produkty" class="section section-dark">
   <div class="container">
-    <h2 class="section-title light">Produkty</h2>
+    <h2 class="section-title light" data-animate>Produkty</h2>
     <div class="products-controls">
       <div class="filter-tabs" id="filterTabs">
         <button class="filter-tab active" data-cat="all">Wszystkie</button>
-        <button class="filter-tab" data-cat="odzież">Odzież</button>
+        <button class="filter-tab" data-cat="odzie\u017c">Odziez</button>
         <button class="filter-tab" data-cat="obuwie">Obuwie</button>
         <button class="filter-tab" data-cat="akcesoria">Akcesoria</button>
       </div>
@@ -278,37 +293,49 @@
 
 <section id="korzysci" class="section">
   <div class="container">
-    <h2 class="section-title">Dlaczego NEXO?</h2>
+    <h2 class="section-title" data-animate>Dlaczego NEXO?</h2>
     <div class="benefits-grid">
-      <div class="benefit">
-        <div class="benefit-icon">&#128666;</div>
+      <div class="benefit" data-animate data-animate-delay="1">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24"><path d="M1 3h15v13H1zM16 8h4l3 4v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
         <h3>Darmowa dostawa</h3>
         <p>Przy zamowieniach powyzej 199 zl dostawa gratis. Ekspresowa opcja dostepna za 14,99 zl.</p>
       </div>
-      <div class="benefit">
-        <div class="benefit-icon">&#128260;</div>
+      <div class="benefit" data-animate data-animate-delay="2">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
+        </div>
         <h3>Prosta wymiana</h3>
-        <p>30 dni na zwrot lub wymiane - bez pytan. Darmowe etykiety zwrotne dla stałych klientow.</p>
+        <p>30 dni na zwrot lub wymiane - bez pytan. Darmowe etykiety zwrotne dla stalych klientow.</p>
       </div>
-      <div class="benefit">
-        <div class="benefit-icon">&#128737;</div>
+      <div class="benefit" data-animate data-animate-delay="3">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
         <h3>Gwarancja jakosci</h3>
         <p>Tylko sprawdzone materialy i marki. Kazdy produkt przechodzi kontrole jakosci.</p>
       </div>
-      <div class="benefit">
-        <div class="benefit-icon">&#128222;</div>
+      <div class="benefit" data-animate data-animate-delay="1">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
         <h3>Wsparcie 24/7</h3>
         <p>Nasz zespol jest zawsze dostepny. Odpowiadamy srednio w 15 minut.</p>
       </div>
-      <div class="benefit">
-        <div class="benefit-icon">&#128275;</div>
+      <div class="benefit" data-animate data-animate-delay="2">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
         <h3>Bezpieczne platnosci</h3>
         <p>Szyfrowane polaczenie SSL, BLIK, karty i przelew. Twoje dane sa bezpieczne.</p>
       </div>
-      <div class="benefit">
-        <div class="benefit-icon">&#127381;</div>
+      <div class="benefit" data-animate data-animate-delay="3">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
+        </div>
         <h3>Eksluzywne oferty</h3>
-        <p>Dołacz do newslettera i otrzymaj -10% na pierwsze zamowienie oraz dostep do wyprzedazy.</p>
+        <p>Dolacz do newslettera i otrzymaj -10% na pierwsze zamowienie oraz dostep do wyprzedazy.</p>
       </div>
     </div>
   </div>
@@ -316,9 +343,9 @@
 
 <section id="opinie" class="section section-soft">
   <div class="container">
-    <h2 class="section-title">Opinie klientow</h2>
+    <h2 class="section-title" data-animate>Opinie klientow</h2>
     <div class="testimonials-grid">
-      <div class="testimonial">
+      <div class="testimonial" data-animate data-animate-delay="1">
         <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <p>"Swietna jakosc i szybka dostawa. Kurtka Urban Pro przyszla nastepnego dnia - jestem zachwycona! Wracam tu regularnie."</p>
         <div class="testimonial-author">
@@ -329,7 +356,7 @@
           </div>
         </div>
       </div>
-      <div class="testimonial">
+      <div class="testimonial" data-animate data-animate-delay="2">
         <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <p>"Kurtka Urban Pro to strzal w dziesiatke. Swietnie lezy, material premium. Rozmiar zgodny z tabelka. Polecam!"</p>
         <div class="testimonial-author">
@@ -340,7 +367,7 @@
           </div>
         </div>
       </div>
-      <div class="testimonial">
+      <div class="testimonial" data-animate data-animate-delay="3">
         <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <p>"Prosty zwrot i mila obsluga. Zamowilam dwa rozmiary sneakersow i zwrot jednej pary byl bez zadnych problemow. Najlepszy sklep online!"</p>
         <div class="testimonial-author">
@@ -351,7 +378,7 @@
           </div>
         </div>
       </div>
-      <div class="testimonial">
+      <div class="testimonial" data-animate data-animate-delay="1">
         <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <p>"Plecak City to idealna torba do pracy. Miesci laptopa, dokumenty i lunch. Material swietny jakosciowo."</p>
         <div class="testimonial-author">
@@ -362,7 +389,7 @@
           </div>
         </div>
       </div>
-      <div class="testimonial">
+      <div class="testimonial" data-animate data-animate-delay="2">
         <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
         <p>"Sneakers NEXO X sa wygodne i bardzo stylowe. Zamowilam w sobote, dostawa w poniedzialek. Szybko!"</p>
         <div class="testimonial-author">
@@ -373,7 +400,7 @@
           </div>
         </div>
       </div>
-      <div class="testimonial">
+      <div class="testimonial" data-animate data-animate-delay="3">
         <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <p>"Zamawiam tu juz od ponad roku. Kazdy produkt jest dokladnie taki jak na zdjecie. Polecam NEXO wszystkim znajomym!"</p>
         <div class="testimonial-author">
@@ -389,7 +416,8 @@
 </section>
 
 <section class="promo-section">
-  <div class="container">
+  <div class="promo-bg" style="background-image:url('https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1920&q=80')"></div>
+  <div class="container" data-animate>
     <h2>-10% na pierwsze zamowienie</h2>
     <p>Zapisz sie do newslettera i odbierz kod rabatowy na pierwsze zakupy.</p>
     <div class="promo-input-row">
@@ -401,14 +429,14 @@
 
 <section id="kontakt" class="section">
   <div class="container contact-grid">
-    <div class="contact-info">
+    <div class="contact-info" data-animate>
       <h2>Kontakt</h2>
-      <p>&#128231; hello@nexo.shop</p>
-      <p>&#128222; +48 700 000 000</p>
-      <p>&#128337; Pn-Pt 9:00 - 18:00</p>
+      <p>hello@nexo.shop</p>
+      <p>+48 700 000 000</p>
+      <p>Pn-Pt 9:00 - 18:00</p>
       <p>Odpowiadamy w ciagu 24 godzin. Masz pytanie o produkt lub zamowienie? Napisz do nas!</p>
     </div>
-    <form class="contact-form" onsubmit="submitContact(event)">
+    <form class="contact-form" onsubmit="submitContact(event)" data-animate data-animate-delay="2">
       <input type="text" placeholder="Imie" required>
       <input type="email" placeholder="Email" required>
       <input type="text" placeholder="Temat">
@@ -434,7 +462,7 @@
       <h4>Sklep</h4>
       <ul>
         <li><a href="#produkty">Wszystkie produkty</a></li>
-        <li><a href="#oferta">Odzież</a></li>
+        <li><a href="#oferta">Odziez</a></li>
         <li><a href="#oferta">Obuwie</a></li>
         <li><a href="#oferta">Akcesoria</a></li>
         <li><a href="#">Wyprzedaz</a></li>
@@ -741,7 +769,7 @@ var PRODUCTS = [
     category: 'odzie\u017c',
     badge: null,
     sizes: ['XS','S','M','L','XL','XXL'],
-    emoji: '\uD83E\uDDE5',
+    img: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=480&q=80',
     gradient: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)',
     rating: 4.8,
     reviews: 127,
@@ -755,7 +783,7 @@ var PRODUCTS = [
     category: 'obuwie',
     badge: 'bestseller',
     sizes: ['38','39','40','41','42','43','44','45'],
-    emoji: '\uD83D\uDC5F',
+    img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=480&q=80',
     gradient: 'linear-gradient(135deg, #0f3460 0%, #16213e 100%)',
     rating: 4.9,
     reviews: 342,
@@ -769,7 +797,7 @@ var PRODUCTS = [
     category: 'akcesoria',
     badge: null,
     sizes: null,
-    emoji: '\uD83C\uDF92',
+    img: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=480&q=80',
     gradient: 'linear-gradient(135deg, #1b4332 0%, #081c15 100%)',
     rating: 4.7,
     reviews: 89,
@@ -783,7 +811,7 @@ var PRODUCTS = [
     category: 'odzie\u017c',
     badge: null,
     sizes: ['XS','S','M','L','XL','XXL'],
-    emoji: '\uD83D\uDC55',
+    img: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=480&q=80',
     gradient: 'linear-gradient(135deg, #7f1d1d 0%, #450a0a 100%)',
     rating: 4.6,
     reviews: 214,
@@ -797,7 +825,7 @@ var PRODUCTS = [
     category: 'odzie\u017c',
     badge: 'new',
     sizes: ['XS','S','M','L','XL','XXL'],
-    emoji: '\uD83D\uDC5A',
+    img: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=480&q=80',
     gradient: 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)',
     rating: 4.8,
     reviews: 56,
@@ -812,7 +840,7 @@ var PRODUCTS = [
     category: 'akcesoria',
     badge: 'sale',
     sizes: null,
-    emoji: '\uD83D\uDCBC',
+    img: 'https://images.unsplash.com/photo-1544816155-12df9643f363?w=480&q=80',
     gradient: 'linear-gradient(135deg, #78350f 0%, #451a03 100%)',
     rating: 4.5,
     reviews: 73,
@@ -826,7 +854,7 @@ var PRODUCTS = [
     category: 'akcesoria',
     badge: null,
     sizes: ['S/M','L/XL'],
-    emoji: '\uD83E\uDDE3',
+    img: 'https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=480&q=80',
     gradient: 'linear-gradient(135deg, #312e81 0%, #1e1b4b 100%)',
     rating: 4.7,
     reviews: 41,
@@ -835,12 +863,12 @@ var PRODUCTS = [
   {
     id: 8,
     name: 'Spodnie Chino',
-    desc: 'Klasyczne chino z elastycznym pasem. Slim fit, materiał stretch.',
+    desc: 'Klasyczne chino z elastycznym pasem. Slim fit, material stretch.',
     price: 249,
     category: 'odzie\u017c',
     badge: null,
     sizes: ['28','30','32','34','36'],
-    emoji: '\uD83D\uDC56',
+    img: 'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=480&q=80',
     gradient: 'linear-gradient(135deg, #365314 0%, #1a2e05 100%)',
     rating: 4.6,
     reviews: 98,
@@ -854,7 +882,7 @@ var PRODUCTS = [
     category: 'obuwie',
     badge: 'new',
     sizes: ['37','38','39','40','41','42','43','44','45','46'],
-    emoji: '\uD83D\uDC5E',
+    img: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=480&q=80',
     gradient: 'linear-gradient(135deg, #7c2d12 0%, #431407 100%)',
     rating: 4.7,
     reviews: 34,
@@ -863,13 +891,13 @@ var PRODUCTS = [
   {
     id: 10,
     name: 'Kurtka Puffer',
-    desc: 'Ciepla kurtka puchowa. Wype lnienie 90% puch. Wodoodporna.',
+    desc: 'Ciepla kurtka puchowa. Wypelnienie 90% puch. Wodoodporna.',
     price: 299,
     oldPrice: 349,
     category: 'odzie\u017c',
     badge: 'sale',
     sizes: ['XS','S','M','L','XL','XXL'],
-    emoji: '\uD83E\uDDE3',
+    img: 'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=480&q=80',
     gradient: 'linear-gradient(135deg, #111827 0%, #030712 100%)',
     rating: 4.9,
     reviews: 182,
@@ -883,7 +911,7 @@ var PRODUCTS = [
     category: 'obuwie',
     badge: null,
     sizes: ['36','37','38','39','40','41','42'],
-    emoji: '\uD83D\uDC61',
+    img: 'https://images.unsplash.com/photo-1603487742131-4160ec999306?w=480&q=80',
     gradient: 'linear-gradient(135deg, #92400e 0%, #451a03 100%)',
     rating: 4.5,
     reviews: 67,
@@ -897,7 +925,7 @@ var PRODUCTS = [
     category: 'akcesoria',
     badge: null,
     sizes: null,
-    emoji: '\uD83D\uDCB3',
+    img: 'https://images.unsplash.com/photo-1627123424574-724758594e93?w=480&q=80',
     gradient: 'linear-gradient(135deg, #1c1917 0%, #0c0a09 100%)',
     rating: 4.8,
     reviews: 156,
@@ -988,9 +1016,13 @@ function renderProducts() {
     if (p.oldPrice) priceHtml += '<span class="price-old">' + p.oldPrice + ' zl</span>';
     priceHtml += '</div>';
 
+    var imgHtml = p.img
+      ? '<img src="' + p.img + '" alt="' + p.name + '" loading="lazy">'
+      : '';
+
     return '<article class="product-card' + (p.badge === 'bestseller' ? ' featured' : '') + '">' +
       '<div class="product-img-wrap">' +
-        '<div class="product-img" style="background:' + p.gradient + '">' + p.emoji + '</div>' +
+        '<div class="product-img" style="background:' + p.gradient + '">' + imgHtml + '</div>' +
         badgeHtml +
         '<button class="product-wishlist' + (wished ? ' wished' : '') + '" onclick="toggleWishlist(event,' + p.id + ')" aria-label="Dodaj do ulubionych">' +
           (wished ? '\u2764\uFE0F' : '\uD83E\uDD0D') +
@@ -1058,7 +1090,7 @@ function closeSizeModal() {
 function confirmSize() {
   if (!pendingProductId) return;
   if (!pendingSize) {
-    showToast('\u26A0\uFE0F Wybierz rozmiar');
+    showToast('Wybierz rozmiar');
     return;
   }
   addToCart(pendingProductId, pendingSize, 1);
@@ -1077,7 +1109,7 @@ function addToCart(id, size, qty) {
   }
   saveCart();
   updateCartUI();
-  showToast('\u2705 Dodano do koszyka: ' + p.name);
+  showToast('Dodano do koszyka: ' + p.name);
 }
 
 function removeFromCart(key) {
@@ -1132,8 +1164,11 @@ function renderCartItems() {
     var lineTotal = p.price * item.qty;
     subtotal += lineTotal;
     var meta = item.size ? 'Rozmiar: ' + item.size : '';
+    var imgContent = p.img
+      ? '<img src="' + p.img + '" alt="' + p.name + '">'
+      : '';
     return '<div class="cart-item">' +
-      '<div class="cart-item-img" style="background:' + p.gradient + '">' + p.emoji + '</div>' +
+      '<div class="cart-item-img" style="background:' + p.gradient + '">' + imgContent + '</div>' +
       '<div class="cart-item-info">' +
         '<div class="cart-item-name">' + p.name + '</div>' +
         (meta ? '<div class="cart-item-meta">' + meta + '</div>' : '<div class="cart-item-meta">&nbsp;</div>') +
@@ -1144,7 +1179,7 @@ function renderCartItems() {
             '<button class="qty-btn" onclick="changeQty(\'' + item.key + '\',1)">+</button>' +
           '</div>' +
           '<span class="cart-item-price">' + lineTotal + ' zl</span>' +
-          '<button class="cart-item-remove" onclick="removeFromCart(\'' + item.key + '\')" aria-label="Usun">\uD83D\uDDD1\uFE0F</button>' +
+          '<button class="cart-item-remove" onclick="removeFromCart(\'' + item.key + '\')" aria-label="Usun">&times;</button>' +
         '</div>' +
       '</div>' +
     '</div>';
@@ -1162,7 +1197,7 @@ function renderCartItems() {
 
   var infoEl = document.getElementById('cartShippingInfo');
   if (shipping === 0) {
-    infoEl.innerHTML = '\uD83C\uDF89 Masz darmowa dostawe!';
+    infoEl.innerHTML = 'Masz darmowa dostawe!';
   } else {
     var diff = (FREE_SHIPPING - subtotal).toFixed(2);
     var pct = Math.min(100, Math.round((subtotal / FREE_SHIPPING) * 100));
@@ -1214,7 +1249,7 @@ function submitOrder() {
   var street = document.getElementById('chkStreet').value.trim();
   var city = document.getElementById('chkCity').value.trim();
   if (!name || !email || !street || !city) {
-    showToast('\u26A0\uFE0F Wypelnij wymagane pola');
+    showToast('Wypelnij wymagane pola');
     return;
   }
   cart = [];
@@ -1229,7 +1264,7 @@ function toggleWishlist(e, id) {
   var idx = wishlist.indexOf(id);
   if (idx === -1) {
     wishlist.push(id);
-    showToast('\u2764\uFE0F Dodano do ulubionych');
+    showToast('Dodano do ulubionych');
   } else {
     wishlist.splice(idx, 1);
     showToast('Usunieto z ulubionych');
@@ -1252,16 +1287,16 @@ function subscribeNewsletter() {
   var el = document.getElementById('newsletterEmail');
   var val = el.value.trim();
   if (!val || !val.includes('@')) {
-    showToast('\u26A0\uFE0F Podaj poprawny adres email');
+    showToast('Podaj poprawny adres email');
     return;
   }
   el.value = '';
-  showToast('\uD83D\uDCE7 Zapisano! Sprawdz email po kod -10%');
+  showToast('Zapisano! Sprawdz email po kod -10%');
 }
 
 function submitContact(e) {
   e.preventDefault();
-  showToast('\uD83D\uDCEC Wiadomosc wyslana. Odpiszemy wkrotce!');
+  showToast('Wiadomosc wyslana. Odpiszemy wkrotce!');
   e.target.reset();
 }
 
@@ -1293,8 +1328,11 @@ function handleSearch(val) {
     return;
   }
   container.innerHTML = results.map(function(p) {
+    var imgContent = p.img
+      ? '<img src="' + p.img + '" alt="' + p.name + '">'
+      : '';
     return '<div class="search-result-item" onclick="selectSearchResult(' + p.id + ')">' +
-      '<div class="search-result-img" style="background:' + p.gradient + '">' + p.emoji + '</div>' +
+      '<div class="search-result-img" style="background:' + p.gradient + '">' + imgContent + '</div>' +
       '<div class="search-result-info">' +
         '<div class="search-result-name">' + p.name + '</div>' +
         '<div class="search-result-price">' + p.price + ' zl</div>' +
@@ -1366,6 +1404,18 @@ function selectSearchResult(id) {
       closeSizeModal();
       closeSearch();
     }
+  });
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('[data-animate]').forEach(function(el) {
+    observer.observe(el);
   });
 
   var bar = document.getElementById('stickyBar');
