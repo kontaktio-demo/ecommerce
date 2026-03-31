@@ -231,10 +231,7 @@ img {
 }
 
 .hero-content h1 span {
-  background: linear-gradient(135deg, #a5b4fc, #818cf8);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #a5b4fc;
 }
 
 .hero-content p {
@@ -393,11 +390,11 @@ img {
   inset: 0;
   background-size: cover;
   background-position: center;
-  transition: transform .6s cubic-bezier(.25,.1,.25,1);
+  transition: transform .4s ease;
 }
 
 .feature:hover .feature-img {
-  transform: scale(1.08);
+  transform: scale(1.04);
 }
 
 .feature-overlay {
@@ -493,19 +490,19 @@ img {
 .filter-tab {
   padding: 9px 20px;
   border-radius: 999px;
-  border: 1.5px solid rgba(255,255,255,.12);
+  border: 1.5px solid var(--border);
   background: transparent;
-  color: rgba(255,255,255,.55);
+  color: var(--muted);
   font-size: .86rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all var(--transition);
+  transition: all .2s ease;
   font-family: inherit;
 }
 
 .filter-tab:hover {
-  border-color: rgba(255,255,255,.35);
-  color: #fff;
+  border-color: var(--accent);
+  color: var(--text);
 }
 
 .filter-tab.active {
@@ -517,50 +514,50 @@ img {
 .sort-select {
   padding: 9px 16px;
   border-radius: 12px;
-  border: 1.5px solid rgba(255,255,255,.15);
-  background: rgba(255,255,255,.06);
-  color: rgba(255,255,255,.8);
+  border: 1.5px solid var(--border);
+  background: #fff;
+  color: var(--text);
   font-size: .86rem;
   font-family: inherit;
   cursor: pointer;
   outline: none;
-  transition: border-color var(--transition);
+  transition: border-color .2s ease;
 }
 
 .sort-select:hover {
-  border-color: rgba(255,255,255,.35);
+  border-color: var(--accent);
 }
 
 .sort-select option {
-  background: #1a1c22;
-  color: #fff;
+  background: #fff;
+  color: var(--text);
 }
 
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
 }
 
 .product-card {
-  background: #141418;
-  border-radius: var(--radius-lg);
+  background: #fff;
+  border-radius: 14px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  transition: transform .4s cubic-bezier(.25,.1,.25,1), box-shadow .4s;
+  transition: box-shadow .25s ease, transform .25s ease;
   position: relative;
-  border: 1px solid rgba(255,255,255,.06);
+  border: 1px solid #e5e7eb;
 }
 
 .product-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 30px 60px rgba(0,0,0,.5);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.1);
 }
 
 .product-card.featured {
-  outline: 2px solid var(--accent);
-  outline-offset: -2px;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
 }
 
 .product-img-wrap {
@@ -574,30 +571,30 @@ img {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  transition: transform .5s cubic-bezier(.25,.1,.25,1);
+  background: #f5f5f7 !important;
 }
 
 .product-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform .5s cubic-bezier(.25,.1,.25,1);
+  transition: transform .35s ease;
 }
 
 .product-card:hover .product-img img {
-  transform: scale(1.06);
+  transform: scale(1.03);
 }
 
 .product-badge {
   position: absolute;
-  top: 14px;
-  left: 14px;
-  padding: 5px 12px;
-  border-radius: 999px;
+  top: 10px;
+  left: 10px;
+  padding: 4px 10px;
+  border-radius: 6px;
   font-size: .72rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: .5px;
+  letter-spacing: .3px;
   z-index: 2;
 }
 
@@ -623,21 +620,22 @@ img {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: rgba(20,20,24,.6);
-  border: 1px solid rgba(255,255,255,.1);
+  background: rgba(255,255,255,.85);
+  border: 1px solid rgba(0,0,0,.08);
   cursor: pointer;
   font-size: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all var(--transition);
+  transition: all .2s ease;
   z-index: 2;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(6px);
 }
 
 .product-wishlist:hover {
-  background: rgba(20,20,24,.85);
-  transform: scale(1.1);
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,.12);
+  transform: scale(1.05);
 }
 
 .product-wishlist.wished {
@@ -646,7 +644,7 @@ img {
 }
 
 .product-body {
-  padding: 20px;
+  padding: 16px;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -667,20 +665,21 @@ img {
 
 .rating-count {
   font-size: .75rem;
-  color: #52525b;
+  color: var(--muted);
 }
 
 .product-card h4 {
-  color: #fff;
-  font-size: 1rem;
-  margin-bottom: 6px;
-  font-weight: 700;
+  color: var(--text);
+  font-size: .95rem;
+  margin-bottom: 4px;
+  font-weight: 600;
+  line-height: 1.3;
 }
 
 .product-card .desc {
-  color: #a1a1aa;
-  font-size: .85rem;
-  line-height: 1.55;
+  color: var(--muted);
+  font-size: .83rem;
+  line-height: 1.5;
   flex: 1;
 }
 
@@ -692,13 +691,13 @@ img {
 }
 
 .price {
-  color: #a5b4fc;
-  font-weight: 700;
+  color: var(--text);
+  font-weight: 800;
   font-size: 1.15rem;
 }
 
 .price-old {
-  color: #52525b;
+  color: #9ca3af;
   font-size: .88rem;
   text-decoration: line-through;
 }
@@ -711,8 +710,9 @@ img {
 
 .product-actions .btn {
   flex: 1;
-  font-size: .85rem;
+  font-size: .84rem;
   padding: 10px 14px;
+  border-radius: 10px;
 }
 
 .benefits-grid {
@@ -723,16 +723,14 @@ img {
 
 .benefit {
   background: var(--bg-soft);
-  padding: 40px 32px;
-  border-radius: var(--radius-lg);
-  transition: transform .4s cubic-bezier(.25,.1,.25,1), box-shadow .4s;
-  border: 1px solid transparent;
+  padding: 32px 28px;
+  border-radius: 16px;
+  transition: box-shadow .25s ease;
+  border: 1px solid var(--border);
 }
 
 .benefit:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--border);
+  box-shadow: 0 4px 16px rgba(0,0,0,.08);
 }
 
 .benefit-icon {
@@ -776,16 +774,15 @@ img {
 
 .testimonial {
   background: #fff;
-  padding: 36px;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow);
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
   border: 1px solid var(--border);
-  transition: transform .4s cubic-bezier(.25,.1,.25,1), box-shadow .4s;
+  transition: box-shadow .25s ease;
 }
 
 .testimonial:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 4px 16px rgba(0,0,0,.08);
 }
 
 .testimonial-stars {
